@@ -1,0 +1,15 @@
+{
+    "name": "iyawn/foodorderingsystem",
+    "autoload": {
+        "psr-4": {
+            "Iyawn\\Foodorderingsystem\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "iyawn",
+            "email": "iannmacabulos@gmail.com"
+        }
+    ],
+    "require": {}
+}

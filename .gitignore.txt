@@ -1,0 +1,7 @@
+/vendor/
+/uploads/
+/.idea/
+/.vscode/
+*.log
+composer.lock
+.env
