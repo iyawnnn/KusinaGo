@@ -16,15 +16,15 @@ if (isset($_SESSION['cart'])) {
 ?>
 
 <header class="header">
-    <h2>AIM SWIFT Car Rentals Menu</h2>
+    <h2>Food Ordering System</h2>
     <div>
         <?php if ($loggedInUser): ?>
-            👤 Hi, <?= htmlspecialchars($loggedInUser) ?> |
-            <a class="login-btn" href="cart.php">🛒 Cart (<?= $cartCount ?>)</a> |
+            👤 Hi, <?= htmlspecialchars($loggedInUser) ?> 
+            <a class="login-btn" href="cart.php">🛒 Cart (<?= $cartCount ?>)</a> 
             <a class="login-btn" href="logout.php">Logout</a>
         <?php elseif ($loggedInAdmin): ?>
-            👤 Hi, Admin |
-            <a class="login-btn" href="admin_dashboard.php">Dashboard</a> |
+            👤 Hi, Admin
+            <a class="login-btn" href="admin_dashboard.php">Dashboard</a> 
             <a class="login-btn" href="logout.php">Logout</a>
         <?php else: ?>
             <a class="login-btn" href="login.php">Login</a>

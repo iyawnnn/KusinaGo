@@ -12,7 +12,7 @@ $loggedInUser = $_SESSION['user'] ?? null;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AIM SWIFT - Menu</title>
+    <title>Menu</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
