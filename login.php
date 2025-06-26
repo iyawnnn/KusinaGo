@@ -1,24 +1,38 @@
 <?php
 session_start();
-require __DIR__ . '/vendor/autoload.php';
+require 'vendor/autoload.php';
+
+$client = new MongoDB\Client("mongodb://localhost:27017");
+$db = $client->food_ordering;
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $client = new MongoDB\Client("mongodb://localhost:27017");
-    $collection = $client->food_ordering->admins;
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $role = $_POST['role'] ?? 'user';
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $admin = $collection->findOne(['username' => $username]);
-
-    if ($admin && password_verify($password, $admin['password'])) {
-        $_SESSION['admin'] = $username;
-        header('Location: dashboard.php');
-        exit;
+    if ($role === 'admin') {
+        // Hardcoded admin credentials
+        if ($username === 'admin' && $password === '12345') {
+            $_SESSION['admin'] = $username;
+            header("Location: dashboard.php");
+            exit;
+        } else {
+            $error = 'Invalid admin credentials.';
+        }
     } else {
-        $error = 'Invalid credentials!';
+        // For user login (assuming users are stored in MongoDB)
+        $collection = $db->users;
+        $user = $collection->findOne(['username' => $username]);
+
+        if ($user && $user['password'] === $password) {
+            $_SESSION['user'] = $username;
+            header("Location: index.php");
+            exit;
+        } else {
+            $error = 'Invalid user credentials.';
+        }
     }
 }
 ?>
@@ -26,17 +40,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Login</title>
+    <title>Login</title>
 </head>
 <body>
-    <h2>Admin Login</h2>
+    <h2>🔐 Login</h2>
+
     <?php if ($error): ?>
         <p style="color:red"><?= $error ?></p>
     <?php endif; ?>
+
     <form method="post">
-        <input type="text" name="username" placeholder="Username" required><br><br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
+        <label>Username:</label><br>
+        <input type="text" name="username" required placeholder="Enter your username"><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <label>Login as:</label><br>
+        <select name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select><br><br>
+
         <button type="submit">Login</button>
     </form>
+
+    <br>
+    <a href="index.php">Back to Home</a>
 </body>
 </html>
