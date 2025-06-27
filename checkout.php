@@ -42,6 +42,7 @@ $order = [
     'items' => $itemsToSave,
     'total' => $total,
     'ordered_at' => date('Y-m-d H:i:s'),
+    'status' => 'Pending'
 ];
 
 $result = $ordersCollection->insertOne($order);

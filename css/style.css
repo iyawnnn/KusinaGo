@@ -79,6 +79,15 @@ body {
     color: #8D261F;
 }
 
+.order-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+
 
 
 

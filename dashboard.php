@@ -12,6 +12,7 @@
 
     <a href="menu_list.php">View Menu Items</a><br>
     <a href="add_item.php">Add New Item</a><br>
+    <a href="admin_view_orders.php" class="btn">📋 View All Orders</a>
     <!-- You can add this once we build it -->
     <!-- <a href="orders_list.php">📦 View Orders</a><br> -->
     <a href="logout.php">Logout</a>

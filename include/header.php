@@ -26,6 +26,7 @@ if (isset($_SESSION['cart'])) {
         <?php elseif ($loggedInAdmin): ?>
             👤 Hi, Admin
             <a class="login-btn" href="admin_dashboard.php">Dashboard</a> 
+            <a class="login-btn" href="admin_orders.php">🧾 Orders</a>
             <a class="login-btn" href="logout.php">Logout</a>
         <?php else: ?>
             <a class="login-btn" href="login.php">Login</a>
