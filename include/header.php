@@ -21,6 +21,7 @@ if (isset($_SESSION['cart'])) {
         <?php if ($loggedInUser): ?>
             👤 Hi, <?= htmlspecialchars($loggedInUser) ?> 
             <a class="login-btn" href="cart.php">🛒 Cart (<?= $cartCount ?>)</a> 
+            <a class="login-btn" href="user_orders.php">🧾 Order History</a> 
             <a class="login-btn" href="logout.php">Logout</a>
         <?php elseif ($loggedInAdmin): ?>
             👤 Hi, Admin

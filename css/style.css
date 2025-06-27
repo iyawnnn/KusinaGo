@@ -67,5 +67,18 @@ body {
     margin-top: 10px;
 }
 
+.order-box {
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.order-box h3 {
+    margin-top: 0;
+    color: #8D261F;
+}
+
+
 
 

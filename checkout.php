@@ -1,6 +1,8 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
+date_default_timezone_set('Asia/Manila');
+
 
 
 if (!isset($_SESSION['user'])) {
@@ -46,7 +48,6 @@ $result = $ordersCollection->insertOne($order);
 
 if ($result->getInsertedCount() === 1) {
     unset($_SESSION['cart']); // ✅ clear cart after insert
-    echo "✅ Order placed successfully!";
     // Optionally redirect to a thank-you page:
     // header("Location: thank_you.php");
     // exit;
