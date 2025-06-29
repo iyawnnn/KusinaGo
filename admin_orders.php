@@ -21,7 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['n
     exit;
 }
 
-$orders = $collection->find([], ['sort' => ['ordered_at' => -1]]);
+$orders = $collection-> find(
+    ['status' => ['$ne' => 'Delivered']], // Show all except Delivered
+    ['sort' => ['ordered_at' => -1]]
+);
+
 ?>
 
 <!DOCTYPE html>

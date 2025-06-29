@@ -13,35 +13,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
     $itemId = $_POST['item_id'];
 
     $client = new MongoDB\Client("mongodb://localhost:27017");
-    $collection = $client->food_ordering->menu;
+    $menuCollection = $client->food_ordering->menu;
 
-    $item = $collection->findOne(['_id' => new ObjectId($itemId)]);
+    $item = $menuCollection->findOne(['_id' => new ObjectId($itemId)]);
 
     if ($item) {
-        $cartItem = [
-            'id' => (string)$item['_id'],
-            'name' => $item['name'],
-            'price' => $item['price'],
-            'quantity' => 1
-        ];
+        $stock = isset($item['stock']) ? (int)$item['stock'] : 0;
+        $cartItemId = (string)$item['_id'];
 
-        // Initialize cart if not set
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
-
-        $found = false;
-        // If item already in cart, increase quantity
-        foreach ($_SESSION['cart'] as &$ci) {
-            if ($ci['id'] === $cartItem['id']) {
-                $ci['quantity']++;
-                $found = true;
-                break;
+        // Count quantity in cart already
+        $currentQtyInCart = 0;
+        if (isset($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as $ci) {
+                if ($ci['id'] === $cartItemId) {
+                    $currentQtyInCart = $ci['quantity'];
+                    break;
+                }
             }
         }
 
-        if (!$found) {
-            $_SESSION['cart'][] = $cartItem;
+        if ($currentQtyInCart < $stock) {
+            // Add or increment item in cart
+            $found = false;
+            foreach ($_SESSION['cart'] as &$ci) {
+                if ($ci['id'] === $cartItemId) {
+                    $ci['quantity']++;
+                    $found = true;
+                    break;
+                }
+            }
+            unset($ci); // Break reference
+
+            if (!$found) {
+                $_SESSION['cart'][] = [
+                    'id' => $cartItemId,
+                    'name' => $item['name'],
+                    'price' => $item['price'],
+                    'quantity' => 1
+                ];
+            }
+
+        } else {
+            $_SESSION['error'] = "🚫 You cannot add more than available stock!";
         }
     }
 }

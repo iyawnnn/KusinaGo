@@ -1,9 +1,6 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
-date_default_timezone_set('Asia/Manila');
-
-
 
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
@@ -20,19 +17,23 @@ if (empty($cart)) {
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $db = $client->food_ordering;
 $ordersCollection = $db->orders;
+$menuCollection = $db->menu;
 
 $total = 0;
 $itemsToSave = [];
+
+use MongoDB\BSON\ObjectId;
 
 foreach ($cart as $item) {
     $subtotal = $item['price'] * $item['quantity'];
     $total += $subtotal;
 
     $itemsToSave[] = [
+        '_id' => $item['id'], // We'll use this to reduce stock
         'name' => $item['name'],
         'price' => $item['price'],
         'quantity' => $item['quantity'],
-        'subtotal' => $subtotal,
+        'subtotal' => $subtotal
     ];
 }
 
@@ -48,20 +49,21 @@ $order = [
 $result = $ordersCollection->insertOne($order);
 
 if ($result->getInsertedCount() === 1) {
-    unset($_SESSION['cart']); // ✅ clear cart after insert
-    // Optionally redirect to a thank-you page:
-    // header("Location: thank_you.php");
-    // exit;
+    // 🔻 Reduce stock securely using _id
+    foreach ($itemsToSave as $orderedItem) {
+        $menuCollection->updateOne(
+            ['_id' => new ObjectId($orderedItem['_id'])],
+            ['$inc' => ['stock' => -$orderedItem['quantity']]]
+        );
+    }
+
+    unset($_SESSION['cart']);
+    echo "✅ Order placed successfully!";
 } else {
-    echo "❌ Order failed to insert!";
+    echo "❌ Order failed!";
 }
-
-
-
-// Clear cart
-unset($_SESSION['cart']);
-
 ?>
+
 
 <!DOCTYPE html>
 <html>
