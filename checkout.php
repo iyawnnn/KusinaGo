@@ -58,7 +58,7 @@ if ($result->getInsertedCount() === 1) {
     }
 
     unset($_SESSION['cart']);
-    echo "✅ Order placed successfully!";
+        header("Location: receipt.php");
 } else {
     echo "❌ Order failed!";
 }

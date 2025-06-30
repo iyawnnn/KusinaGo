@@ -1,5 +1,6 @@
 <?php
 session_start();
+require __DIR__ . '/vendor/autoload.php';
 
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
@@ -8,6 +9,10 @@ if (!isset($_SESSION['user'])) {
 
 $cart = $_SESSION['cart'] ?? [];
 $total = 0;
+
+// MongoDB client to fetch stock
+$client = new MongoDB\Client("mongodb://localhost:27017");
+$menuCollection = $client->food_ordering->menu;
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +43,10 @@ $total = 0;
             <?php foreach ($cart as $index => $item): 
                 $subtotal = $item['price'] * $item['quantity'];
                 $total += $subtotal;
+
+                // Fetch stock from DB
+                $menuItem = $menuCollection->findOne(['_id' => new MongoDB\BSON\ObjectId($item['id'])]);
+                $availableStock = $menuItem['stock'] ?? 99;
             ?>
                 <tr>
                     <td><?= htmlspecialchars($item['name']) ?></td>
@@ -49,7 +58,12 @@ $total = 0;
                             data-index="<?= $index ?>" 
                             value="<?= $item['quantity'] ?>" 
                             min="1" 
-                            style="width:60px;">
+                            max="<?= $availableStock ?>" 
+                            style="width:60px;"
+                        >
+                        <?php if ($availableStock < $item['quantity']): ?>
+                            <div style="color:red; font-size: 12px;">Only <?= $availableStock ?> in stock</div>
+                        <?php endif; ?>
                     </td>
                     <td class="item-total">₱<?= number_format($subtotal, 2) ?></td>
                     <td>
@@ -83,6 +97,9 @@ document.querySelectorAll('.quantity-input').forEach(input => {
             if (data.success) {
                 this.closest('tr').querySelector('.item-total').textContent = '₱' + data.item_total.toFixed(2);
                 document.getElementById('cart-total').textContent = data.cart_total.toFixed(2);
+            } else {
+                alert(data.message || "Stock limit reached.");
+                window.location.reload();
             }
         });
     });
