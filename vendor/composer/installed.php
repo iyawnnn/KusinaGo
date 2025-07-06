@@ -3,7 +3,7 @@
         'name' => 'iyawn/foodorderingsystem',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd28b01c267187908000b8bb730346e0591acbd44',
+        'reference' => '2040fd5aeba761c17d0c5851b9dc3980b64b429c',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -40,7 +40,7 @@
         'iyawn/foodorderingsystem' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd28b01c267187908000b8bb730346e0591acbd44',
+            'reference' => '2040fd5aeba761c17d0c5851b9dc3980b64b429c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

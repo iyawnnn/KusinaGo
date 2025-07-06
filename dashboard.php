@@ -1,3 +1,32 @@
+<?php
+require_once __DIR__ . '/vendor/autoload.php'; // ✅ Add this at the top
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$loggedInUser = $_SESSION['user'] ?? null;
+$loggedInAdmin = $_SESSION['admin'] ?? null;
+
+// Count total cart items
+$cartCount = 0;
+if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $item) {
+        $cartCount += $item['quantity'];
+    }
+}
+
+// ✅ Always define $pendingCount (default to 0)
+$pendingCount = 0;
+if ($loggedInAdmin) {
+    $client = new MongoDB\Client("mongodb://localhost:27017");
+    $ordersCollection = $client->food_ordering->orders;
+    $pendingCount = $ordersCollection->countDocuments(['status' => 'Pending']);
+}
+?>
+
+
+
 <?php include 'admin_auth.php'; ?>
 
 

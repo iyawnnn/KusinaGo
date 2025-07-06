@@ -53,7 +53,7 @@ if ($loggedInAdmin) {
                     <span class="badge"><?= $pendingCount ?></span>
                 <?php endif; ?>
             </a>
-            <a class="login-btn" href="admin_sales_report.php">📈 Sales</a>
+            <a class="login-btn" href="admin_report.php">📈 Sales</a>
             <a class="login-btn" href="logout.php">Logout</a>
 
         <?php else: ?>
