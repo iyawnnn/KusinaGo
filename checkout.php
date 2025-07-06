@@ -2,6 +2,8 @@
 session_start();
 require 'vendor/autoload.php';
 
+use MongoDB\BSON\ObjectId;
+
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
@@ -19,67 +21,87 @@ $db = $client->food_ordering;
 $ordersCollection = $db->orders;
 $menuCollection = $db->menu;
 
-$total = 0;
-$itemsToSave = [];
+// If GET: Show payment method form
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $total = 0;
+    foreach ($cart as $item) {
+        $total += $item['price'] * $item['quantity'];
+    }
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Checkout</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+    <?php include 'include/header.php'; ?>
 
-use MongoDB\BSON\ObjectId;
+    <div class="container">
+        <h2>🧾 Checkout</h2>
+        <p><strong>Total: ₱<?= number_format($total, 2) ?></strong></p>
 
-foreach ($cart as $item) {
-    $subtotal = $item['price'] * $item['quantity'];
-    $total += $subtotal;
+        <form method="post">
+            <label><strong>💳 Select Payment Method:</strong></label><br>
+            <select name="payment_method" required>
+                <option value="">-- Choose --</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+                <option value="GCash">GCash</option>
+                <option value="Credit Card">Credit Card</option>
+            </select>
+            <br><br>
+            <button type="submit">✅ Confirm and Pay</button>
+        </form>
+    </div>
 
-    $itemsToSave[] = [
-        '_id' => $item['id'], // We'll use this to reduce stock
-        'name' => $item['name'],
-        'price' => $item['price'],
-        'quantity' => $item['quantity'],
-        'subtotal' => $subtotal
-    ];
+    </body>
+    </html>
+    <?php
+    exit;
 }
 
-// Save order
-$order = [
-    'username' => $_SESSION['user'],
-    'items' => $itemsToSave,
-    'total' => $total,
-    'ordered_at' => date('Y-m-d H:i:s'),
-    'status' => 'Pending'
-];
+// If POST: Process the order
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
+    $total = 0;
+    $itemsToSave = [];
 
-$result = $ordersCollection->insertOne($order);
+    foreach ($cart as $item) {
+        $subtotal = $item['price'] * $item['quantity'];
+        $total += $subtotal;
 
-if ($result->getInsertedCount() === 1) {
-    // 🔻 Reduce stock securely using _id
-    foreach ($itemsToSave as $orderedItem) {
-        $menuCollection->updateOne(
-            ['_id' => new ObjectId($orderedItem['_id'])],
-            ['$inc' => ['stock' => -$orderedItem['quantity']]]
-        );
+        $itemsToSave[] = [
+            '_id' => $item['id'],
+            'name' => $item['name'],
+            'price' => $item['price'],
+            'quantity' => $item['quantity'],
+            'subtotal' => $subtotal
+        ];
     }
 
-    unset($_SESSION['cart']);
+    $order = [
+        'username' => $_SESSION['user'],
+        'items' => $itemsToSave,
+        'total' => $total,
+        'payment_method' => $_POST['payment_method'],
+        'ordered_at' => date('Y-m-d H:i:s'),
+        'status' => 'Pending'
+    ];
+
+    $result = $ordersCollection->insertOne($order);
+
+    if ($result->getInsertedCount() === 1) {
+        foreach ($itemsToSave as $orderedItem) {
+            $menuCollection->updateOne(
+                ['_id' => new ObjectId($orderedItem['_id'])],
+                ['$inc' => ['stock' => -$orderedItem['quantity']]]
+            );
+        }
+
+        unset($_SESSION['cart']);
         header("Location: receipt.php");
-} else {
-    echo "❌ Order failed!";
+        exit;
+    } else {
+        echo "❌ Order failed!";
+    }
 }
 ?>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Order Confirmed</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<?php include 'include/header.php'; ?>
-
-<div class="container">
-    <h2>✅ Thank You for Your Order!</h2>
-    <p>Your order has been placed successfully.</p>
-    <p><strong>Total Paid: ₱<?= number_format($total, 2) ?></strong></p>
-    <a href="index.php" class="btn">← Back to Menu</a>
-</div>
-
-</body>
-</html>

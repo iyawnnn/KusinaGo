@@ -67,6 +67,7 @@ if (!$order) {
     <p><strong>Order ID:</strong> <?= $order['_id'] ?></p>
     <p><strong>Date:</strong> <?= $order['ordered_at'] ?></p>
     <p><strong>Status:</strong> <?= $order['status'] ?? 'Pending' ?></p>
+    <p><strong>Payment Method:</strong> <?= htmlspecialchars($order['payment_method'] ?? 'Not Specified') ?></p>
     <hr>
     <ul>
         <?php foreach ($order['items'] as $item): ?>

@@ -45,6 +45,7 @@ $orders = $collection-> find(
             <p>🆔 Order ID: <?= $order['_id'] ?></p>
             <p>👤 Username: <?= htmlspecialchars($order['username']) ?></p>
             <p>🕒 Ordered on: <?= $order['ordered_at'] ?></p>
+            <p>💳 Payment: <?= $order['payment_method'] ?? 'N/A' ?></p>
             <p>📦 Status: <strong><?= $order['status'] ?? 'Pending' ?></strong></p>
             <ul>
                 <?php foreach ($order['items'] as $item): ?>
