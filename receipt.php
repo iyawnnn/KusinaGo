@@ -76,7 +76,7 @@ if (!$order) {
     <hr>
     <p><strong>Total:</strong> ₱<?= number_format($order['total'], 2) ?></p>
 
-    <button class="btn print-btn" onclick="window.print()">🖨️ Print Receipt</button>
+    <a href="download_receipt_pdf.php" class="btn print-btn">Download as PDF</a>
 </div>
 
 </body>
