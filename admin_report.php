@@ -55,5 +55,8 @@ $report = $ordersCollection->aggregate($pipeline);
     </table>
 </div>
 
+<a href="sales_report_pdf.php" class="btn">⬇ Download as PDF</a>
+
+
 </body>
 </html>

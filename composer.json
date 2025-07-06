@@ -11,5 +11,8 @@
             "email": "iannmacabulos@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "dompdf/dompdf": "^3.1",
+        "mongodb/mongodb": "^1.16"
+    }
 }
