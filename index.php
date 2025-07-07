@@ -86,7 +86,7 @@ try {
         <div class="featured-item">
           <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="featured-img">
           <div class="featured-info">
-            <span class="category">Handa sa Hapág</span>
+            <span class="category"><?= htmlspecialchars($item['category'] ?? 'Uncategorized') ?></span>
             <h3><?= htmlspecialchars($item['name']) ?></h3>
             <p>₱<?= htmlspecialchars($item['price']) ?></p>
           </div>
