@@ -39,6 +39,7 @@ try {
   <title>Home | KusinaGo</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="uploads/favicon.svg">
 </head>
 
 <body>

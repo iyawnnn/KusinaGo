@@ -26,8 +26,9 @@ if (!$order) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Order Receipt</title>
+    <title>Order Receipt | KusinaGo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="uploads/favicon.svg">
     <style>
         .receipt {
             max-width: 600px;

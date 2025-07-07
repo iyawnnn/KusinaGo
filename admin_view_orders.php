@@ -19,15 +19,16 @@ $orders = $ordersCollection->find([], [
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin - View Orders</title>
+    <title>Order History | KusinaGo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 
 <?php include 'include/header.php'; ?>
 
 <div class="container">
-    <h2>📋 All Orders</h2>
+    <h2>All Orders</h2>
 
     <?php foreach ($orders as $order): ?>
         <div class="order-card">

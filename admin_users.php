@@ -18,14 +18,15 @@ $orders = $db->orders;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin - Users</title>
+    <title>Users Orders | KusinaGo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 <?php include 'include/header.php'; ?>
 
 <div class="container">
-    <h2>👥 Customer Summary</h2>
+    <h2>Customer Summary</h2>
 
     <table border="1" cellpadding="8">
         <tr>
@@ -54,7 +55,7 @@ $orders = $db->orders;
                 <td><?= $orderCount ?></td>
                 <td>₱<?= number_format($totalSpent, 2) ?></td>
                 <td>
-                    <a href="admin_user_orders.php?username=<?= urlencode($username) ?>">📋 View Orders</a>
+                    <a href="admin_user_orders.php?username=<?= urlencode($username) ?>">View Orders</a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -29,8 +29,9 @@ $report = $ordersCollection->aggregate($pipeline);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin - Sales Report</title>
+    <title>Sales Report | KusinaGo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 

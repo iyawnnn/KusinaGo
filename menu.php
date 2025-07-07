@@ -28,6 +28,7 @@ $displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pamp
     <title>Menu | KusinaGo</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 
 <body>

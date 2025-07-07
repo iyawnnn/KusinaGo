@@ -19,6 +19,7 @@ $menuCollection = $client->food_ordering->menu;
 <html>
 <head>
     <title>Your Cart | KusinaGo</title>
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 

@@ -27,36 +27,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     foreach ($cart as $item) {
         $total += $item['price'] * $item['quantity'];
     }
-    ?>
+?>
     <!DOCTYPE html>
     <html>
+
     <head>
-        <title>Checkout</title>
+        <title>Checkout | KusiaGo</title>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="uploads/favicon.svg">
     </head>
+
     <body>
-    <?php include 'include/header.php'; ?>
+        <?php include 'include/header.php'; ?>
 
-    <div class="container">
-        <h2>🧾 Checkout</h2>
-        <p><strong>Total: ₱<?= number_format($total, 2) ?></strong></p>
+        <div class="container">
+            <h2>🧾 Checkout</h2>
+            <p><strong>Total: ₱<?= number_format($total, 2) ?></strong></p>
 
-        <form method="post">
-            <label><strong>💳 Select Payment Method:</strong></label><br>
-            <select name="payment_method" required>
-                <option value="">-- Choose --</option>
-                <option value="Cash on Delivery">Cash on Delivery</option>
-                <option value="GCash">GCash</option>
-                <option value="Credit Card">Credit Card</option>
-            </select>
-            <br><br>
-            <button type="submit">✅ Confirm and Pay</button>
-        </form>
-    </div>
+            <form method="post">
+                <label><strong>💳 Select Payment Method:</strong></label><br>
+                <select name="payment_method" required>
+                    <option value="">-- Choose --</option>
+                    <option value="Cash on Delivery">Cash on Delivery</option>
+                    <option value="GCash">GCash</option>
+                    <option value="Credit Card">Credit Card</option>
+                </select>
+                <br><br>
+                <button type="submit">✅ Confirm and Pay</button>
+            </form>
+        </div>
 
     </body>
+
     </html>
-    <?php
+<?php
     exit;
 }
 

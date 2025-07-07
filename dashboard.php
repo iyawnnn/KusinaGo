@@ -25,16 +25,14 @@ if ($loggedInAdmin) {
 }
 ?>
 
-
-
 <?php include 'admin_auth.php'; ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Dashboard</title>
+    <title>Dashboard | KusinaGo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
     <?php include 'include/header.php'; ?>

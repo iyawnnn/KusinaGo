@@ -30,14 +30,15 @@ $items = $menuCollection->find();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Inventory Management</title>
+    <title>Inventory Management | KusinaGo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 <?php include 'include/header.php'; ?>
 
 <div class="container">
-    <h2>📦 Inventory Management</h2>
+    <h2>Inventory Management</h2>
     <table>
         <tr>
             <th>Item</th>

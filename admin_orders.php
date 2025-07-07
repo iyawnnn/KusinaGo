@@ -37,8 +37,9 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
 <html>
 
 <head>
-    <title>Admin Orders</title>
+    <title>Orders | KusinaGo</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="uploads/favicon.svg">
     <style>
         .status-Pending {
             color: orange;
@@ -69,7 +70,7 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
     <div class="container">
 
 
-        <!-- 🔍 Filter Form -->
+        <!-- Filter Form -->
         <form method="get" style="margin-bottom: 20px;">
             <label for="status">Filter by Status:</label>
             <select name="status" id="status" onchange="this.form.submit()">
@@ -85,14 +86,14 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
 
         <?php foreach ($orders as $order): ?>
             <div class="order-box">
-                <p>🆔 Order ID: <?= $order['_id'] ?></p>
-                <p>👤 Username: <?= htmlspecialchars($order['username']) ?></p>
-                <p>🕒 Ordered on: <?= $order['ordered_at'] ?></p>
-                <p>💳 Payment: <?= $order['payment_method'] ?? 'N/A' ?></p>
+                <p>Order ID: <?= $order['_id'] ?></p>
+                <p>Username: <?= htmlspecialchars($order['username']) ?></p>
+                <p>Ordered on: <?= $order['ordered_at'] ?></p>
+                <p>Payment: <?= $order['payment_method'] ?? 'N/A' ?></p>
 
                 <?php
                 $status = $order['status'] ?? 'Pending';
-                echo "<p>📦 Status: <span class='status-$status'>$status</span></p>";
+                echo "<p>Status: <span class='status-$status'>$status</span></p>";
                 ?>
 
                 <ul>
@@ -106,9 +107,9 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
                     <input type="hidden" name="order_id" value="<?= $order['_id'] ?>">
                     <select name="new_status" required>
                         <option value="">-- Update Status --</option>
-                        <option value="Processed">✅ Mark as Processed</option>
-                        <option value="Delivered">🚚 Mark as Delivered</option>
-                        <option value="Cancelled">❌ Cancel</option>
+                        <option value="Processed">Mark as Processed</option>
+                        <option value="Delivered">Mark as Delivered</option>
+                        <option value="Cancelled">Cancel</option>
                     </select>
                     <button type="submit">Update</button>
                 </form>

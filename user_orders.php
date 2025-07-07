@@ -20,6 +20,7 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
 <html>
 <head>
     <title>My Orders | KusinaGo</title>
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 
