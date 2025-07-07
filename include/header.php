@@ -48,9 +48,12 @@ if ($loggedInAdmin) {
       <?php endif; ?>
     </div>
 
-    <!-- Logo -->
+    <?php
+    $isAdmin = isset($_SESSION['admin']);
+    $logoLink = $isAdmin ? 'dashboard.php' : 'index.php';
+    ?>
     <div class="nav-center">
-      <a href="index.php">
+      <a href="<?= $logoLink ?>">
         <img src="uploads/KusinoGo Logo.svg" alt="KusinaGo Logo" class="logo">
       </a>
     </div>

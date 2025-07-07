@@ -79,7 +79,7 @@ button {
   padding: var(--space-sm) 0;
   color: var(--cream);
   z-index: 999;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* optional shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); 
 }
 
 .header-container {
