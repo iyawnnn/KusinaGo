@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = $_POST['name'];
     $price    = (int) $_POST['price'];
     $category = $_POST['category'];
+    $description = $_POST['description'];
     $image    = '';
 
     // Handle image upload
@@ -36,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'name'     => $name,
             'price'    => $price,
             'category' => $category,
+            'description'=> $description,
             'image'    => $image
         ]);
         $success = "Item added!";
@@ -70,6 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label>Category:</label><br>
         <input type="text" name="category" required><br><br>
+
+        <label>Description:</label><br>
+        <textarea name="description" rows="3" required></textarea><br><br>
 
         <label>Image:</label><br>
         <input type="file" name="image" accept="image/*" required><br><br>

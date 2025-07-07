@@ -19,15 +19,14 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Orders</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>My Orders | KusinaGo</title>
 </head>
 <body>
 
 <?php include 'include/header.php'; ?>
 
 <div class="container">
-    <h2>🧾 My Orders</h2>
+    <h2>My Orders</h2>
 
     <?php
     $foundOrders = false;
@@ -35,8 +34,8 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
         $foundOrders = true;
     ?>
         <div class="order-box">
-            <h3>🗓 Ordered on: <?= $order['ordered_at'] ?></h3>
-            <p>📦 Status: <?= $order['status'] ?? 'Pending' ?></p>
+            <h3>Ordered on: <?= $order['ordered_at'] ?></h3>
+            <p>Status: <?= $order['status'] ?? 'Pending' ?></p>
             <ul>
                 <?php foreach ($order['items'] as $item): ?>
                     <li><?= htmlspecialchars($item['name']) ?> - Qty: <?= $item['quantity'] ?> - ₱<?= number_format($item['subtotal'], 2) ?></li>
@@ -47,7 +46,7 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
             <?php if (($order['status'] ?? 'Pending') === 'Pending'): ?>
                 <form method="post" action="cancel_order.php" style="margin-top: 10px;">
                     <input type="hidden" name="order_id" value="<?= $order['_id'] ?>">
-                    <button type="submit" class="btn">❌ Cancel Order</button>
+                    <button type="submit" class="btn">Cancel Order</button>
                 </form>
             <?php endif; ?>
         </div>
@@ -58,6 +57,5 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
         <p>You have no previous orders.</p>
     <?php endif; ?>
 </div>
-
 </body>
 </html>

@@ -18,8 +18,7 @@ $menuCollection = $client->food_ordering->menu;
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Cart</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Your Cart | KusinaGo</title>
 </head>
 <body>
 
