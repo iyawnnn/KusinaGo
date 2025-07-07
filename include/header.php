@@ -24,12 +24,13 @@ if ($loggedInAdmin) {
 ?>
 
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/responsive.css">
 <header class="header">
   <div class="header-container">
     <!-- Left Nav -->
     <div class="nav-left">
       <?php if ($loggedInUser): ?>
-        <a href="index.php">Menu</a>
+        <a href="menu.php">Menu</a>
         <a class="login-btn btn-badge" href="cart.php">
           Cart
           <?php if ($cartCount > 0): ?>

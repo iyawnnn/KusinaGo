@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <h2>✏️ Edit Food Item</h2>
+    <h2>Edit Food Item</h2>
     <a href="menu_list.php">Back to Menu</a><br><br>
 
     <?php if ($success): ?>

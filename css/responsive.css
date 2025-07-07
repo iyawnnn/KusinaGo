@@ -1,0 +1,38 @@
+/* 📱 Mobile: Make Button Smaller */
+@media (max-width: 1024px) {
+  .hero-image-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    gap: 0.5rem;
+    bottom: 10%;
+    left: 12%;
+  }
+
+  .hero-image-btn__icon-wrapper {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hero-image-btn__icon-svg {
+    width: 10px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1599px) {
+  .hero-image-btn {
+    bottom: 12%;
+    left: 12%;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    gap: 0.6rem;
+  }
+
+  .hero-image-btn__icon-wrapper {
+    width: 27px;
+    height: 27px;
+  }
+
+  .hero-image-btn__icon-svg {
+    width: 11px;
+  }
+}

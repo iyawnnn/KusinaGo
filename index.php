@@ -1,92 +1,53 @@
 <?php
 session_start();
-require __DIR__ . '/vendor/autoload.php';
-
-$client = new MongoDB\Client("mongodb://localhost:27017");
-$collection = $client->food_ordering->menu;
-$allItems = $collection->find()->toArray();
-
-// Group items by category
-$groupedItems = [];
-foreach ($allItems as $item) {
-    $category = $item['category'] ?? 'Uncategorized';
-    $groupedItems[$category][] = $item;
-}
-
-$loggedInUser = $_SESSION['user'] ?? null;
-$loggedInAdmin = $_SESSION['admin'] ?? null;
-
-// Optional: define category display order
-$displayOrder = ['Main Dish', 'Appetizer', 'Dessert', 'Beverage', 'Uncategorized'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>KusinaGo | Home Page</title>
-    <link rel="stylesheet" href="css/main.css">
+  <title>Home | KusinaGo</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
 <?php include 'include/header.php'; ?>
 
-<?php foreach ($displayOrder as $category): ?>
-    <?php if (!isset($groupedItems[$category])) continue; ?>
-
-    <div class="menu-section">
-        <h2 class="menu-heading"><?= htmlspecialchars($category) ?></h2>
-
-        <div class="menu-container">
-            <?php foreach ($groupedItems[$category] as $item): ?>
-                <?php
-                $stock = isset($item['stock']) ? (int)$item['stock'] : null;
-                $outOfStock = $stock !== null && $stock <= 0;
-
-                $currentInCart = 0;
-                if (isset($_SESSION['cart'])) {
-                    foreach ($_SESSION['cart'] as $ci) {
-                        if ($ci['id'] === (string)$item['_id']) {
-                            $currentInCart = $ci['quantity'];
-                            break;
-                        }
-                    }
-                }
-
-                $reachedLimit = $stock !== null && $currentInCart >= $stock;
-                ?>
-
-                <div class="item">
-                    <div class="item-info">
-                        <h3><?= htmlspecialchars($item['name']) ?></h3>
-                        <p class="desc"><?= htmlspecialchars($item['description'] ?? 'No description available.') ?></p>
-                        <p class="price">₱<?= htmlspecialchars($item['price']) ?></p>
-
-                        <?php if ($loggedInUser): ?>
-                            <?php if ($outOfStock): ?>
-                                <p class="out-of-stock">❌ Out of Stock</p>
-                                <button class="cart-btn" disabled>Add to Cart</button>
-                            <?php elseif ($reachedLimit): ?>
-                                <p class="out-of-stock">🛑 Max stock (<?= $stock ?>) in cart</p>
-                                <button class="cart-btn" disabled>Add to Cart</button>
-                            <?php else: ?>
-                                <form method="post" action="add_to_cart.php">
-                                    <input type="hidden" name="item_id" value="<?= $item['_id'] ?>">
-                                    <button type="submit" class="cart-btn">Add to Cart</button>
-                                </form>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <a href="login.php" class="cart-btn">Add to Cart</a>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="item-img">
-                        <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-<?php endforeach; ?>
+<section class="home-hero">
+  <div class="hero-img-wrapper">
+    <img src="uploads/header.svg" alt="Luxury Filipino Dish">
+    
+    <a href="menu.php" class="hero-image-btn">
+      <span class="hero-image-btn__icon-wrapper">
+        <svg
+          viewBox="0 0 14 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="hero-image-btn__icon-svg"
+          width="10"
+        >
+          <path
+            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <svg
+          viewBox="0 0 14 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="hero-image-btn__icon-svg hero-image-btn__icon-svg--copy"
+          width="10"
+        >
+          <path
+            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </span>
+      Explore Menu
+    </a>
+  </div>
+</section>
 
 </body>
 </html>
