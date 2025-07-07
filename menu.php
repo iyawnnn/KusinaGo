@@ -94,4 +94,24 @@ $displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pamp
 
 </body>
 
+<script>
+  // Save scroll position before form submit
+  document.querySelectorAll("form").forEach(form => {
+    form.addEventListener("submit", () => {
+      localStorage.setItem("scrollPos", window.scrollY);
+    });
+  });
+
+  // Restore scroll after reload
+  window.addEventListener("load", () => {
+    const scrollPos = localStorage.getItem("scrollPos");
+    if (scrollPos) {
+      window.scrollTo(0, parseInt(scrollPos));
+      localStorage.removeItem("scrollPos");
+    }
+  });
+
+  const header = document.querySelector('.header');
+</script>
+
 </html>
