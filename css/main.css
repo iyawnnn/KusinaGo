@@ -458,3 +458,51 @@ button {
   color: #333;
   margin-bottom: 10px;
 }
+
+.our-story-section {
+  background-color: #E66C32; /* Orange */
+  color: #EFEEE6; /* Cream */
+  padding: 80px 20px;
+  position: relative;
+}
+
+.our-story-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+.story-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.story-text h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.story-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.story-image {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.story-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
