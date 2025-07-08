@@ -96,6 +96,24 @@ try {
     </div>
   </section>
 
+  <section class="our-story-section">
+  <div class="our-story-container">
+    <div class="story-text">
+      <h2 class="section-heading">Our Story</h2>
+      <p>
+        Born from the heart of Filipino tradition and elevated with refined taste, <strong>KusinaGo</strong> blends cultural heritage with culinary excellence. Each dish tells a story — a journey from our family kitchen to your elegant table. 
+      </p>
+      <p>
+        With hand-selected ingredients, artisanal techniques, and a commitment to timeless flavor, we invite you to experience Filipino cuisine like never before — reimagined with sophistication and soul.
+      </p>
+    </div>
+    <div class="story-image">
+      <img src="uploads/story-plate.png" alt="Elegant Filipino Dish">
+    </div>
+  </div>
+</section>
+
+
 </body>
 
 </html>
