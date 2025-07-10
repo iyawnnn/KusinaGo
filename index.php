@@ -97,24 +97,25 @@ try {
   </section>
 
   <section class="our-story-section">
-  <div class="our-story-container">
-    <div class="story-text">
-      <h2 class="section-heading">Our Story</h2>
-      <p>
-        Born from the heart of Filipino tradition and elevated with refined taste, <strong>KusinaGo</strong> blends cultural heritage with culinary excellence. Each dish tells a story — a journey from our family kitchen to your elegant table. 
-      </p>
-      <p>
-        With hand-selected ingredients, artisanal techniques, and a commitment to timeless flavor, we invite you to experience Filipino cuisine like never before — reimagined with sophistication and soul.
-      </p>
-    </div>
-    <div class="story-image">
-      <img src="uploads/story-plate.png" alt="Elegant Filipino Dish">
-    </div>
-  </div>
-</section>
+    <div class="our-story-container">
+      <div class="story-text">
+        <h2>Our Story</h2>
+        <p>
+          KusinaGo was born from the belief that Filipino cuisine can be both traditional and timelessly elegant.
+        </p>
+        <p>
+          Rooted in cherished family recipes and inspired by the art of fine dining, we bring each dish to life with a balance of warmth and sophistication.
+        </p>
+        <p>
+          From the careful selection of local ingredients to the graceful presentation on your plate, every experience is curated to reflect not just our food — but our heritage, our passion, and our pride as Filipinos.
+        </p>
 
-<div>Test</div>
-
+      </div>
+      <div class="story-image">
+        <img src="uploads/Chef.jpg" alt="Elegant Filipino Dish">
+      </div>
+    </div>
+  </section>
 
 </body>
 
