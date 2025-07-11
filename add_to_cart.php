@@ -49,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
                     'id' => $cartItemId,
                     'name' => $item['name'],
                     'price' => $item['price'],
-                    'quantity' => 1
+                    'quantity' => 1,
+                    'image' => $item['image']
                 ];
             }
-
         } else {
             $_SESSION['error'] = "🚫 You cannot add more than available stock!";
         }
