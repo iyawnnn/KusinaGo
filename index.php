@@ -151,7 +151,36 @@ try {
     </div>
   </section>
 
-        
+  <section class="testimonials-section">
+    <h2 class="section-heading">What Our Customers Say</h2>
+    <div class="testimonial-cards">
+
+      <div class="testimonial">
+        <img src="uploads/customer1.jpg" alt="Customer 1" class="profile-pic">
+        <div class="customer-name">Isabella Cruz</div>
+        <div class="customer-role">Food Blogger</div>
+        <p>“From packaging to taste — KusinaGo delivered a fine dining experience right to our doorstep.”</p>
+      </div>
+
+      <div class="testimonial">
+        <img src="uploads/customer2.webp" alt="Customer 2" class="profile-pic">
+        <div class="customer-name">Trisha Dela Rosa</div>
+        <div class="customer-role">Corporate Chef</div>
+        <p>“Truly elegant. The balance of flavor and presentation is unmatched.”</p>
+      </div>
+
+      <div class="testimonial">
+        <img src="uploads/customer3.jpg" alt="Customer 3" class="profile-pic">
+        <div class="customer-name">Clarisse Tan</div>
+        <div class="customer-role">Interior Designer</div>
+        <p>“It's not just food — it's a full luxurious experience. Everything feels premium.”</p>
+      </div>
+
+    </div>
+  </section>
+
+
+
 
 </body>
 
