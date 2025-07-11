@@ -400,8 +400,8 @@ button {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-  padding: 40px 0;
   text-align: center;
+  margin-bottom: 45px;
 }
 
 .section-heading {
@@ -409,6 +409,7 @@ button {
   font-weight: 700;
   font-size: 36px;
   color: #0E3F18; 
+  margin-bottom: 45px;
 }
 
 .featured-item {
@@ -476,12 +477,13 @@ button {
   align-items: center;
   justify-content: space-between; /* spread them apart a bit */
   gap: 40px;
+  margin-bottom: 30px;
 }
 
 .story-text {
   flex: 1 1 500px;
   max-width: 520px;
-  margin-right: 20px; /* add space between text and image */
+  margin-right: 20px; 
 }
 
 .story-text h2 {
@@ -514,6 +516,72 @@ button {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   object-fit: cover;
 }
+
+
+/* -------------------------------------------------- */
+/*               How It Works Section                 */
+/* -------------------------------------------------- */
+
+.how-it-works-section {
+  background-color: #EFEEE6;
+}
+
+.how-it-works-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.how-it-works-container{
+  font-size: 2.4rem;
+  font-family: 'Merriweather', serif;
+  color: #121212;
+  font-weight: 700;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+
+.step {
+  max-width: 300px;
+  text-align: center;
+}
+
+.step-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #E66C32;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: #121212;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-family: 'Merriweather', serif; 
+}
+
+.step p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2d2d2d;
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 300;
+}
+
+.step-icon iconify-icon {
+  width: 64px;
+  height: 64px;
+  color: #E66C32;
+}
+
+
 
 
 

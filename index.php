@@ -40,6 +40,7 @@ try {
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="icon" href="uploads/favicon.svg">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 
 <body>
@@ -116,6 +117,41 @@ try {
       </div>
     </div>
   </section>
+
+  <section class="how-it-works-section">
+    <div class="how-it-works-container">
+      <h2 class="section-heading">How It Works</h2>
+      <div class="steps">
+
+        <div class="step">
+          <span class="step-icon">
+            <iconify-icon icon="mdi:food-outline" width="48" height="48"></iconify-icon>
+          </span>
+          <h3>Curate Your Cravings</h3>
+          <p>Discover a refined selection of Filipino cuisine — each dish a blend of tradition and culinary elegance.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-icon">
+            <iconify-icon icon="mdi:clipboard-text-outline" width="48" height="48"></iconify-icon>
+          </span>
+          <h3>Effortless Ordering</h3>
+          <p>With a few simple clicks, reserve your favorites. Our seamless process puts comfort and convenience first.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-icon">
+            <iconify-icon icon="mdi:truck-delivery-outline" width="48" height="48"></iconify-icon>
+          </span>
+          <h3>Dine in Elegance</h3>
+          <p>Your selections arrive carefully prepared and beautifully packed — ready to serve, savor, and celebrate.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+        
 
 </body>
 
