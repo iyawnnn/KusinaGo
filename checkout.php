@@ -36,95 +36,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="uploads/favicon.svg">
     </head>
-
     <body>
         <?php include 'include/header.php'; ?>
 
-        <div class="checkout-container">
-            <h2>Checkout</h2>
+        <div class="checkout-form-wrapper">
+            <div class="checkout-container">
+                <h2>Checkout</h2>
 
-            <form method="post" class="checkout-form">
+                <form method="post" class="checkout-form">
 
-                <!-- Shipping Details -->
-                <h3>Shipping Details</h3>
+                    <!-- Shipping Details -->
+                    <h3>Shipping Details</h3>
 
-                <label for="full_name">Full Name</label>
-                <input type="text" id="full_name" name="full_name" placeholder="Juan Dela Cruz" required>
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Juan Dela Cruz" required>
 
-                <label for="contact_number">Contact Number</label>
-                <input type="text" id="contact_number" name="contact_number" placeholder="09XXXXXXXXX" required>
+                    <label for="contact_number">Contact Number</label>
+                    <input type="text" id="contact_number" name="contact_number" placeholder="09XXXXXXXXX" required>
 
-                <label for="street">Street Address</label>
-                <input type="text" id="street" name="street" placeholder="123 Purok 5, Mabini St." required>
+                    <label for="street">Street Address</label>
+                    <input type="text" id="street" name="street" placeholder="123 Purok 5, Mabini St." required>
 
-                <label for="barangay">Barangay</label>
-                <input type="text" id="barangay" name="barangay" placeholder="Brgy. San Isidro" required>
+                    <label for="barangay">Barangay</label>
+                    <input type="text" id="barangay" name="barangay" placeholder="Brgy. San Isidro" required>
 
-                <label for="city">City / Municipality</label>
-                <input type="text" id="city" name="city" placeholder="San Fernando" required>
+                    <label for="city">City / Municipality</label>
+                    <input type="text" id="city" name="city" placeholder="San Fernando" required>
 
-                <label for="province">Province</label>
-                <select id="province" name="province" required>
-                    <option value="">Select a province</option>
-                    <option value="Pampanga">Pampanga</option>
-                    <option value="Bulacan">Bulacan</option>
-                    <option value="Cavite">Cavite</option>
-                    <option value="Laguna">Laguna</option>
-                    <option value="Batangas">Batangas</option>
-                    <option value="Quezon">Quezon</option>
-                    <option value="Metro Manila">Metro Manila</option>
-                </select>
+                    <label for="province">Province</label>
+                    <select id="province" name="province" required>
+                        <option value="">Select a province</option>
+                        <option value="Pampanga">Pampanga</option>
+                        <option value="Bulacan">Bulacan</option>
+                        <option value="Cavite">Cavite</option>
+                        <option value="Laguna">Laguna</option>
+                        <option value="Batangas">Batangas</option>
+                        <option value="Quezon">Quezon</option>
+                        <option value="Metro Manila">Metro Manila</option>
+                    </select>
 
-                <label for="zip">ZIP Code</label>
-                <input type="text" id="zip" name="zip" placeholder="2000" required>
+                    <label for="zip">ZIP Code</label>
+                    <input type="text" id="zip" name="zip" placeholder="2000" required>
 
-                <!-- Payment Method -->
-                <h3>Payment Method</h3>
-                <div class="payment-method-group">
-                    <label class="payment-method">
-                        <div class="method-info">
-                            <img src="uploads/gcash.svg" alt="GCash" />
-                            <p>GCash</p>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" name="payment_method" value="GCash" required />
-                        </div>
-                    </label>
+                    <!-- Payment Method -->
+                    <h3 class="payment-method-header">Payment Method</h3>
+                    <div class="payment-method-group">
+                        <label class="payment-method">
+                            <div class="method-info">
+                                <img src="uploads/cod.svg" alt="COD" />
+                                <p>Cash on Delivery</p>
+                                <input type="radio" name="payment_method" value="Cash on Delivery" required />
+                            </div>
+                        </label>
 
-                    <label class="payment-method">
-                        <div class="method-info">
-                            <img src="uploads/gcash.svg" alt="GCash" />
-                            <p>GCash</p>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" name="payment_method" value="GCash" required />
-                        </div>
-                    </label>
+                        <label class="payment-method">
+                            <div class="method-info">
+                                <img src="uploads/gcash.svg" alt="GCash" />
+                                <p>GCash</p>
+                                <input type="radio" name="payment_method" value="GCash" required />
+                            </div>
+                        </label>
 
-                    <label class="payment-method">
-                        <div class="method-info">
-                            <img src="uploads/gcash.svg" alt="GCash" />
-                            <p>GCash</p>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" name="payment_method" value="GCash" required />
-                        </div>
-                    </label>
-
-
-                </div>
-
-                <!-- Total + Button -->
-                <div class="checkout-footer">
-                    <div class="total-and-confirm">
-                        <p><strong>Total: ₱<?= number_format($total, 2) ?></strong></p>
-                        <button type="submit">Confirm and Pay</button>
+                        <label class="payment-method">
+                            <div class="method-info">
+                                <img src="uploads/creditcard.svg" alt="Credit Card" />
+                                <p>Credit Card</p>
+                                <input type="radio" name="payment_method" value="Credit Car" required />
+                            </div>
+                        </label>
                     </div>
-                </div>
-            </form>
+
+                    <!-- Total + Button -->
+                    <div class="checkout-footer">
+                        <div class="total-and-confirm">
+                            <p><strong>Total: ₱<?= number_format($total, 2) ?></strong></p>
+                            <button type="submit">Confirm and Pay</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
-
+    </body>
     </html>
 <?php
     exit;
