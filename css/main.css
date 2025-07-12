@@ -1116,119 +1116,110 @@ button {
   margin-top: 30px;
 }
 
-.kusinago-confirm-btn {
+.checkout-confirm-btn {
   --width: 180px;
   --height: 48px;
   --tooltip-height: 35px;
   --tooltip-width: 160px;
-  --gap-between-tooltip-to-button: 18px;
-  --button-color: #0E3F18;
+  --gap: 18px;
+  --bg-color: #0E3F18;
   --hover-color: #E66C32;
   --tooltip-color: #fff;
 
   width: var(--width);
   height: var(--height);
-  background: var(--button-color);
+  background: var(--bg-color);
   position: relative;
-  text-align: center;
+  border: none;
   border-radius: 0.45em;
   font-family: 'Poppins', sans-serif;
   transition: background 0.3s;
   cursor: pointer;
+  padding: 0;
+  overflow: hidden;
 }
 
-.kusinago-confirm-btn::before {
-  position: absolute;
+/* Tooltip Bubble */
+.checkout-confirm-btn::before {
   content: attr(data-tooltip);
+  position: absolute;
   width: var(--tooltip-width);
   height: var(--tooltip-height);
-  background-color: #555;
-  font-size: 0.9rem;
+  background: #555;
   color: var(--tooltip-color);
-  border-radius: .25em;
+  font-size: 0.9rem;
   line-height: var(--tooltip-height);
-  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
-  left: calc(50% - var(--tooltip-width) / 2);
-  font-family: 'Poppins', sans-serif;
-}
-
-.kusinago-confirm-btn::after {
-  position: absolute;
-  content: '';
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-top-color: #555;
-  left: calc(50% - 10px);
-  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
-}
-
-.kusinago-confirm-btn::before,
-.kusinago-confirm-btn::after {
+  text-align: center;
+  border-radius: 0.25em;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(100% + var(--gap) + 10px);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.5s;
+  transition: all 0.4s;
+  z-index: 10;
 }
 
-.kusinago-confirm-btn:hover::before,
-.kusinago-confirm-btn:hover::after {
+.checkout-confirm-btn::after {
+  content: '';
+  position: absolute;
+  border: 10px solid transparent;
+  border-top-color: #555;
+  bottom: calc(100% + var(--gap));
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  z-index: 10;
+}
+
+.checkout-confirm-btn:hover::before,
+.checkout-confirm-btn:hover::after {
   opacity: 1;
   visibility: visible;
 }
 
-.kusinago-confirm-btn:hover::after {
-  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+/* Inner animation wrapper */
+.checkout-btn-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
-.kusinago-confirm-btn:hover::before {
-  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
-}
-
-.kusinago-btn-wrapper,
-.kusinago-btn-text,
-.kusinago-btn-icon {
-  overflow: hidden;
+.checkout-btn-text,
+.checkout-btn-icon {
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
-  color: #fff;
-}
-
-.kusinago-btn-text {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  transition: top 0.5s;
+}
+
+.checkout-btn-text {
+  top: 0;
   font-weight: 600;
   font-size: 1em;
-  top: 0;
-  transition: top 0.5s;
 }
 
-.kusinago-btn-icon {
+.checkout-btn-icon {
   top: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: top 0.5s;
 }
 
-.kusinago-btn-icon svg {
-  width: 22px;
-  height: 22px;
-}
-
-.kusinago-confirm-btn:hover {
+.checkout-confirm-btn:hover {
   background: var(--hover-color);
 }
 
-.kusinago-confirm-btn:hover .kusinago-btn-text {
+.checkout-confirm-btn:hover .checkout-btn-text {
   top: -100%;
 }
 
-.kusinago-confirm-btn:hover .kusinago-btn-icon {
+.checkout-confirm-btn:hover .checkout-btn-icon {
   top: 0;
 }
-
-
-
