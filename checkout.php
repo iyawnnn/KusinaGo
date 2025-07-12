@@ -33,31 +33,97 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     <head>
         <title>Checkout | KusiaGo</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/main.css">
         <link rel="icon" href="uploads/favicon.svg">
     </head>
 
     <body>
         <?php include 'include/header.php'; ?>
 
-        <div class="container">
-            <h2>🧾 Checkout</h2>
-            <p><strong>Total: ₱<?= number_format($total, 2) ?></strong></p>
+        <div class="checkout-container">
+            <h2>Checkout</h2>
 
-            <form method="post">
-                <label><strong>💳 Select Payment Method:</strong></label><br>
-                <select name="payment_method" required>
-                    <option value="">-- Choose --</option>
-                    <option value="Cash on Delivery">Cash on Delivery</option>
-                    <option value="GCash">GCash</option>
-                    <option value="Credit Card">Credit Card</option>
+            <form method="post" class="checkout-form">
+
+                <!-- Shipping Details -->
+                <h3>Shipping Details</h3>
+
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" placeholder="Juan Dela Cruz" required>
+
+                <label for="contact_number">Contact Number</label>
+                <input type="text" id="contact_number" name="contact_number" placeholder="09XXXXXXXXX" required>
+
+                <label for="street">Street Address</label>
+                <input type="text" id="street" name="street" placeholder="123 Purok 5, Mabini St." required>
+
+                <label for="barangay">Barangay</label>
+                <input type="text" id="barangay" name="barangay" placeholder="Brgy. San Isidro" required>
+
+                <label for="city">City / Municipality</label>
+                <input type="text" id="city" name="city" placeholder="San Fernando" required>
+
+                <label for="province">Province</label>
+                <select id="province" name="province" required>
+                    <option value="">Select a province</option>
+                    <option value="Pampanga">Pampanga</option>
+                    <option value="Bulacan">Bulacan</option>
+                    <option value="Cavite">Cavite</option>
+                    <option value="Laguna">Laguna</option>
+                    <option value="Batangas">Batangas</option>
+                    <option value="Quezon">Quezon</option>
+                    <option value="Metro Manila">Metro Manila</option>
                 </select>
-                <br><br>
-                <button type="submit">✅ Confirm and Pay</button>
+
+                <label for="zip">ZIP Code</label>
+                <input type="text" id="zip" name="zip" placeholder="2000" required>
+
+                <!-- Payment Method -->
+                <h3>Payment Method</h3>
+                <div class="payment-method-group">
+                    <label class="payment-method">
+                        <div class="method-info">
+                            <img src="uploads/gcash.svg" alt="GCash" />
+                            <p>GCash</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="payment_method" value="GCash" required />
+                        </div>
+                    </label>
+
+                    <label class="payment-method">
+                        <div class="method-info">
+                            <img src="uploads/gcash.svg" alt="GCash" />
+                            <p>GCash</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="payment_method" value="GCash" required />
+                        </div>
+                    </label>
+
+                    <label class="payment-method">
+                        <div class="method-info">
+                            <img src="uploads/gcash.svg" alt="GCash" />
+                            <p>GCash</p>
+                        </div>
+                        <div class="radio-wrapper">
+                            <input type="radio" name="payment_method" value="GCash" required />
+                        </div>
+                    </label>
+
+
+                </div>
+
+                <!-- Total + Button -->
+                <div class="checkout-footer">
+                    <div class="total-and-confirm">
+                        <p><strong>Total: ₱<?= number_format($total, 2) ?></strong></p>
+                        <button type="submit">Confirm and Pay</button>
+                    </div>
+                </div>
             </form>
         </div>
 
-    </body>
 
     </html>
 <?php
