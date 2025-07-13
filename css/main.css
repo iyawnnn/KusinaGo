@@ -1336,3 +1336,99 @@ button {
     display: none;
   }
 }
+
+/* ----------------------------- */
+/*       User Orders Page        */
+/* ----------------------------- */
+
+.order-history-wrapper {
+    max-width: 850px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.order-history-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #0E3F18;
+    margin-bottom: 40px;
+}
+
+.order-box {
+    background-color: #EAE9E1;
+    padding: 28px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+    transition: transform 0.2s ease;
+}
+
+.order-box:hover {
+    transform: translateY(-2px);
+}
+
+.order-box h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #0E3F18;
+}
+
+.order-box p {
+    font-size: 15px;
+    color: #385A42;
+    margin: 5px 0 15px;
+}
+
+.order-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.order-box li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #333;
+}
+
+.order-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #cfcfcf;
+}
+
+.cancel-btn {
+    background-color: transparent;
+    border: 2px solid #E66C32;
+    color: #E66C32;
+    padding: 8px 18px;
+    font-size: 14px;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #E66C32;
+    color: #fff;
+}
+
+.order-total {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0E3F18;
+}
+
+.no-orders-msg {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+    padding: 20px 0;
+}

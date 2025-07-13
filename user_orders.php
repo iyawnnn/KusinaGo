@@ -20,14 +20,15 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
 <html>
 <head>
     <title>My Orders | KusinaGo</title>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 
 <?php include 'include/header.php'; ?>
 
-<div class="container">
-    <h2>My Orders</h2>
+<div class="order-history-wrapper">
+    <h2 class="order-history-title">My Orders</h2>
 
     <?php
     $foundOrders = false;
@@ -39,24 +40,31 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
             <p>Status: <?= $order['status'] ?? 'Pending' ?></p>
             <ul>
                 <?php foreach ($order['items'] as $item): ?>
-                    <li><?= htmlspecialchars($item['name']) ?> - Qty: <?= $item['quantity'] ?> - ₱<?= number_format($item['subtotal'], 2) ?></li>
+                    <li>
+                        <?= htmlspecialchars($item['name']) ?>
+                        <span>Qty: <?= $item['quantity'] ?> - ₱<?= number_format($item['subtotal'], 2) ?></span>
+                    </li>
                 <?php endforeach; ?>
             </ul>
-            <strong>Total: ₱<?= number_format($order['total'], 2) ?></strong>
 
-            <?php if (($order['status'] ?? 'Pending') === 'Pending'): ?>
-                <form method="post" action="cancel_order.php" style="margin-top: 10px;">
-                    <input type="hidden" name="order_id" value="<?= $order['_id'] ?>">
-                    <button type="submit" class="btn">Cancel Order</button>
-                </form>
-            <?php endif; ?>
+            <div class="order-actions">
+                <?php if (($order['status'] ?? 'Pending') === 'Pending'): ?>
+                    <form method="post" action="cancel_order.php">
+                        <input type="hidden" name="order_id" value="<?= $order['_id'] ?>">
+                        <button type="submit" class="cancel-btn">Cancel Order</button>
+                    </form>
+                <?php else: ?>
+                    <div></div> <!-- placeholder for layout -->
+                <?php endif; ?>
+                <div class="order-total">₱<?= number_format($order['total'], 2) ?></div>
+            </div>
         </div>
-        <hr>
     <?php endforeach; ?>
 
     <?php if (!$foundOrders): ?>
-        <p>You have no previous orders.</p>
+        <p class="no-orders-msg">You have no previous orders.</p>
     <?php endif; ?>
 </div>
+
 </body>
 </html>
