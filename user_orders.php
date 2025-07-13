@@ -49,12 +49,9 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
 
             <div class="order-actions">
                 <?php if (($order['status'] ?? 'Pending') === 'Pending'): ?>
-                    <form method="post" action="cancel_order.php">
-                        <input type="hidden" name="order_id" value="<?= $order['_id'] ?>">
-                        <button type="submit" class="cancel-btn">Cancel Order</button>
-                    </form>
+                    <button class="cancel-btn" onclick="showCancelModal('<?= $order['_id'] ?>')">Cancel Order</button>
                 <?php else: ?>
-                    <div></div> <!-- placeholder for layout -->
+                    <div></div> <!-- layout spacer -->
                 <?php endif; ?>
                 <div class="order-total">₱<?= number_format($order['total'], 2) ?></div>
             </div>
@@ -65,6 +62,31 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
         <p class="no-orders-msg">You have no previous orders.</p>
     <?php endif; ?>
 </div>
+
+<!-- Cancel Confirmation Modal -->
+<div id="cancelModal" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+        <p>Are you sure you want to cancel this order?</p>
+        <form id="cancelForm" method="post" action="cancel_order.php">
+            <input type="hidden" name="order_id" id="cancelOrderId">
+            <div class="modal-buttons">
+                <button type="button" class="modal-btn cancel" onclick="hideCancelModal()">Go Back</button>
+                <button type="submit" class="modal-btn confirm">Yes, Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function showCancelModal(orderId) {
+    document.getElementById('cancelOrderId').value = orderId;
+    document.getElementById('cancelModal').style.display = 'flex';
+}
+
+function hideCancelModal() {
+    document.getElementById('cancelModal').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
