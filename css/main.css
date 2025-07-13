@@ -473,6 +473,7 @@ button {
 
 .our-story-section {
   background-color: #efeee6;
+  margin-top: 0;
   padding: 50px 20px;
 }
 
@@ -1607,3 +1608,119 @@ button {
   background: #d45e28;
 }
 
+/* -------------------------------------------------- */
+/*            Admin Orders Styles                     */
+/* -------------------------------------------------- */
+
+.kg-orders-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cream);
+}
+
+.kg-orders-filter-form {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kg-orders-filter-label {
+    font-size: 16px;
+    color: #385A42;
+}
+
+.kg-orders-filter-select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: var(--cream);
+    color: #0E3F18;
+}
+
+/* --- Order Card --- */
+.kg-order-card {
+    background-color: var(--cream);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.kg-order-card p {
+    font-size: 15px;
+    color: #0E3F18;
+    margin: 6px 0;
+}
+
+.kg-order-items {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 12px 0;
+    color: #0E3F18;
+}
+
+.kg-order-total {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+/* --- Status Tag Colors --- */
+.kg-status-tag {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.kg-status-Pending {
+    background-color: #E66C32;
+}
+.kg-status-Processed {
+    background-color: #C29F5E;
+}
+.kg-status-Delivered {
+    background-color: #0E3F18;
+}
+.kg-status-Cancelled {
+    background-color: #B00020;
+}
+
+/* --- Status Form --- */
+.kg-order-status-form {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.kg-status-select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 14px;
+    background-color: #f7f6f2;
+    color: #0E3F18;
+}
+
+.kg-status-btn {
+    padding: 6px 16px;
+    background-color: #E66C32;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.kg-status-btn:hover {
+    background-color: #c7551c;
+}
