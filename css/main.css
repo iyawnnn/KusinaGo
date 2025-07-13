@@ -1977,4 +1977,229 @@ button {
     margin: 0 auto;
 }
 
+/* ------------------------------------- */
+/*         Add Item Page Styling         */
+/* ------------------------------------- */
+.add-item-section {
+    background-color: #EFEEE6;
+    min-height: 100vh;
+    padding: 50px 20px;
+    font-family: 'Poppins', sans-serif;
+}
 
+.add-item-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: #F5F3EB;
+    padding: 35px 40px;
+    border-radius: 18px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.add-item-title {
+    font-size: 30px;
+    font-weight: 600;
+    color: #0E3F18;
+    text-align: center;
+}
+
+.add-item-form label {
+    font-weight: 500;
+    color: #0E3F18;
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+}
+
+.add-item-form input,
+.add-item-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #c3c0b7;
+    background-color: #EFEDE2;
+    font-size: 15px;
+    color: #0E3F18;
+}
+
+.add-item-form input,
+.add-item-form textarea,
+.category-select {
+  font-family: 'Poppins', sans-serif;
+}
+
+.add-item-form textarea {
+    resize: vertical;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d5d1c7;
+    padding-bottom: 10px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: #0E3F18;
+    color: #EFEEE6;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    padding: 14px 30px; 
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.primary-btn:hover {
+    background-color: #385A42;
+}
+
+.secondary-btn {
+    background-color: #385A42;
+    color: #EFEEE6;
+}
+
+.secondary-btn:hover {
+    background-color: #0E3F18;
+}
+
+/* Success/Error messages */
+.form-message {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.form-message.success {
+    background-color: #d1f3d1;
+    color: #0E3F18;
+}
+
+.form-message.error {
+    background-color: #fddddd;
+    color: #B00020;
+}
+
+/* ------------------------------------- */
+/*          Custom File Upload           */
+/* ------------------------------------- */
+.file-upload-form {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.file-upload-label {
+    width: 100%;
+    cursor: pointer;
+    background-color: #F5F3EB;
+    padding: 30px;
+    border-radius: 14px;
+    border: 2px dashed #385A42;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.file-upload-label:hover {
+    border-color: #E66C32;
+    background-color: #EFEDE2;
+}
+
+.file-upload-label input {
+    display: none;
+}
+
+.file-upload-design {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #0E3F18;
+    font-size: 14px;
+    gap: 4px;
+}
+
+.file-upload-design svg {
+    height: 50px;
+    fill: #0E3F18;
+    margin-bottom: 10px;
+}
+
+.browse-button {
+    background-color: #0E3F18;
+    color: #EFEEE6;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.browse-button:hover {
+    background-color: #385A42;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-preview {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;  
+    margin-left: auto;    
+    margin-right: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#upload-status {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #385A42;
+}
+
+.category-select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #c3c0b7;
+    background-color: #EFEDE2;
+    font-size: 15px;
+    color: #0E3F18;
+    font-family: 'Poppins', sans-serif;
+    appearance: none;
+}
+
+.category-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(230, 108, 50, 0.2);
+}

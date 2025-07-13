@@ -17,7 +17,7 @@ $loggedInUser = $_SESSION['user'] ?? null;
 $loggedInAdmin = $_SESSION['admin'] ?? null;
 
 // Optional: define category display order
-$displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pampatamis (Desserts)', 'Pang-alis Uhaw (Beverages)'];
+$displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Panghimagas (Desserts)', 'Pang-alis Uhaw (Beverages)'];
 ?>
 
 
