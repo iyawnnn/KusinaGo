@@ -1,6 +1,5 @@
 <?php
 include 'admin_auth.php';
-
 require __DIR__ . '/vendor/autoload.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
@@ -10,37 +9,60 @@ $items = $collection->find();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Menu Management</title>
+    <meta charset="UTF-8">
+    <title>Menu Management | KusinaGo</title>
+    <link rel="stylesheet" href="css/main.css"> <!-- Connect your main stylesheet -->
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
-    <h2>Food Menu</h2>
-    <a href="add_item.php">Add New Item</a> |
-    <a href="dashboard.php">Back to Dashboard</a> |
-    <a href="logout.php">Logout</a>
-    <br><br>
 
-    <table border="1" cellpadding="8">
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Image</th>
-            <th>Actions</th>
-        </tr>
-        <?php foreach ($items as $item): ?>
-        <tr>
-            <td><?= htmlspecialchars($item['name']) ?></td>
-            <td>₱<?= htmlspecialchars($item['price']) ?></td>
-            <td><?= htmlspecialchars($item['category']) ?></td>
-            <td><img src="<?= htmlspecialchars($item['image']) ?>" width="80"></td>
-            <td>
-                <a href="edit_item.php?id=<?= $item['_id'] ?>">Edit</a> |
-                <a href="delete_item.php?id=<?= $item['_id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
+<?php include 'include/header.php'; ?> <!-- Include admin navbar -->
+
+<section class="menu-list-section">
+    <div class="menu-list-inner">
+
+        <!-- Header: Title + Buttons -->
+        <div class="menu-list-header">
+            <h2 class="menu-list-title">Manage Menu Items</h2>
+            <div class="menu-list-actions">
+                <a href="add_item.php" class="menu-btn add">Add New Item</a>
+                <a href="dashboard.php" class="menu-btn back">Back to Dashboard</a>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="menu-table-container">
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($items as $item): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($item['name']) ?></td>
+                            <td>₱<?= number_format($item['price'], 2) ?></td>
+                            <td><?= htmlspecialchars($item['category']) ?></td>
+                            <td><img src="<?= htmlspecialchars($item['image']) ?>" class="menu-thumbnail"></td>
+                            <td>
+                                <a href="edit_item.php?id=<?= $item['_id'] ?>" class="menu-action edit">Edit</a>
+                                <a href="delete_item.php?id=<?= $item['_id'] ?>" class="menu-action delete" onclick="return confirm('Are you sure?')">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
 </body>
 </html>
