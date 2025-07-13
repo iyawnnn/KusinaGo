@@ -1044,7 +1044,7 @@ button {
   border: 1px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #f9f8f4;
   transition: border-color 0.3s;
 }
 
@@ -1106,7 +1106,7 @@ button {
 
 .checkout-form-wrapper .payment-method .radio-wrapper {
   display: flex;
-  align-items: center; /* center vertically */
+  align-items: center;
   justify-content: right;
   margin-left: auto;
   height: 100%;
@@ -1222,4 +1222,117 @@ button {
 
 .checkout-confirm-btn:hover .checkout-btn-icon {
   top: 0;
+}
+
+/* ----------------------------- */
+/*           Receipt Page        */
+/* ----------------------------- */
+
+.order-receipt-container {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 30px 40px;
+    background-color: var(--cream);
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.order-receipt-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.order-receipt-header h2 {
+    font-weight: 600;
+    font-size: 28px;
+    color: #0E3F18;
+    margin: 0;
+}
+
+.order-meta {
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.order-meta strong {
+    display: inline-block;
+    width: 140px;
+    font-weight: 500;
+    color: #385A42;
+}
+
+.order-item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    padding: 20px 0;
+}
+
+.order-item {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+.item-name {
+    flex: 1;
+    color: #0E3F18;
+}
+
+.item-meta {
+    flex-shrink: 0;
+    text-align: right;
+    font-size: 14px;
+    color: #555;
+}
+
+.order-total {
+    text-align: right;
+    font-weight: 600;
+    font-size: 17px;
+    margin-top: 20px;
+    color: #E66C32;
+}
+
+.cssbuttons-io-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.75em 1.4em;
+  color: white;
+  background: linear-gradient(0deg, #E66C32 0%, #f07d44 100%);
+  border: none;
+  border-radius: 50em;
+  box-shadow: 0 0.6em 1.4em -0.4em rgba(230, 108, 50, 0.6);
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.cssbuttons-io-button svg {
+  margin-right: 10px;
+}
+
+.cssbuttons-io-button:hover {
+  box-shadow: 0 0.4em 1.2em -0.3em rgba(230, 108, 50, 0.5);
+}
+
+.cssbuttons-io-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 0.2em 1em -0.3em rgba(230, 108, 50, 0.5);
+}
+
+@media print {
+  .cssbuttons-io-button {
+    display: none;
+  }
 }
