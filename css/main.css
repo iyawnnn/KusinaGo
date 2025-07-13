@@ -1606,6 +1606,15 @@ button {
   background: #d45e28;
 }
 
+.kg-dashboard-low-stock-message {
+  padding: 12px 16px;
+  color: #385a42;
+  background-color: #efeee6;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
 /* -------------------------------------------------- */
 /*            Admin Orders Styles                     */
 /* -------------------------------------------------- */
@@ -1780,7 +1789,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 1rem 2.5rem;
-  background-color: #0E3F18;
+  background-color: #0e3f18;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -1788,10 +1797,10 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-decoration: none;
-  color: #EFEEE6;
+  color: #efeee6;
   overflow: hidden;
   width: 240px;
-  height: 50px; 
+  height: 50px;
 }
 
 .download-text,
@@ -1803,13 +1812,13 @@ button {
 }
 
 .download-text {
-  color: #EFEEE6;
+  color: #efeee6;
   transition: opacity 0.4s ease;
   opacity: 1;
 }
 
 .download-icon {
-  fill: #EFEEE6;
+  fill: #efeee6;
   width: 1.8rem;
   height: 1.8rem;
   opacity: 0;
@@ -1818,7 +1827,7 @@ button {
 }
 
 .download-btn:hover {
-  background-color: #E66C32;
+  background-color: #e66c32;
 }
 
 .download-btn:hover .download-icon {
@@ -1834,15 +1843,12 @@ button {
   transform: scale(0.97);
 }
 
-
-
-/* Center only the Item Name, Total Sold, and Total Revenue columns */
 .sales-table td:nth-child(1),
 .sales-table td:nth-child(2),
 .sales-table td:nth-child(3),
 .sales-table th:nth-child(1),
 .sales-table th:nth-child(2),
 .sales-table th:nth-child(3) {
-    text-align: center;
+  text-align: center;
 }
 

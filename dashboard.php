@@ -126,19 +126,27 @@ foreach ($monthlyRevenueCursor as $order) {
                 </div>
             <?php endforeach; ?>
             <div class="kg-dashboard-actions">
-                <a href="admin_view_orders.php" class="kg-dashboard-btn">View All Orders</a>
+                <a href="admin_orders.php" class="kg-dashboard-btn">View All Orders</a>
             </div>
         </div>
 
         <div class="kg-dashboard-section">
             <h3 class="kg-dashboard-section-title">Low Inventory Alert</h3>
-            <?php foreach ($lowInventory as $item): ?>
-                <div class="kg-dashboard-low-stock">
-                    <span><?= htmlspecialchars($item['name']) ?></span>
-                    <span><?= $item['stock'] ?> left</span>
+
+            <?php if ($lowStockCount > 0): ?>
+                <?php foreach ($lowInventory as $item): ?>
+                    <div class="kg-dashboard-low-stock">
+                        <span><?= htmlspecialchars($item['name']) ?></span>
+                        <span><?= $item['stock'] ?> left</span>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="kg-dashboard-low-stock-message">
+                    <span>All items are sufficiently stocked.</span>
                 </div>
-            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
+
 
         <div class="kg-dashboard-section">
             <h3 class="kg-dashboard-section-title">Quick Actions</h3>
