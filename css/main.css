@@ -1944,28 +1944,43 @@ button {
 }
 
 
+/* ------------------------------------- */
+/*         Menu Action Buttons           */
+/* ------------------------------------- */
 .menu-action {
-    text-decoration: none;
-    margin: 0 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
     font-weight: 500;
-    transition: 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    display: inline-block;
+    margin-right: 6px;
 }
 
+/* Edit Button Style */
 .menu-action.edit {
-    color: #385A42;
+    background-color: #385A42;
+    color: #fff;
 }
 
 .menu-action.edit:hover {
-    text-decoration: underline;
+    background-color: #0E3F18;
 }
 
+/* Delete Button Style */
 .menu-action.delete {
-    color: #B00020;
+    background-color: #B00020;
+    color: #fff;
 }
 
 .menu-action.delete:hover {
-    text-decoration: underline;
+    background-color: #8e0019;
 }
+
 
 .menu-table td:nth-child(4) {
     text-align: center;
@@ -2264,7 +2279,7 @@ button {
 }
 
 .cancel-btn:hover {
-    background: #e3e1d8;
+    background: #093311;
 }
 
 .confirm-btn {
