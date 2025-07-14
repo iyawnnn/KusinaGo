@@ -2,7 +2,6 @@
 session_start();
 require 'vendor/autoload.php';
 
-// Redirect non-admins
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
     exit;
@@ -16,51 +15,62 @@ $orders = $db->orders;
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Users Orders | KusinaGo</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>Customer Summary | KusinaGo</title>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
+
 <?php include 'include/header.php'; ?>
 
-<div class="container">
-    <h2>Customer Summary</h2>
+<section class="menu-list-section">
+    <div class="menu-list-inner">
+        <!-- Header -->
+        <div class="menu-list-header">
+            <h2 class="menu-list-title">Customer Summary</h2>
+        </div>
 
-    <table border="1" cellpadding="8">
-        <tr>
-            <th>Username</th>
-            <th>Total Orders</th>
-            <th>Total Spent</th>
-            <th>Actions</th>
-        </tr>
+        <!-- Table -->
+        <div class="menu-table-container">
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Total Orders</th>
+                        <th>Total Spent</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($users as $user): 
+                        $username = $user['username'];
+                        $userOrders = $orders->find(['username' => $username]);
 
-        <?php foreach ($users as $user): 
-            $username = $user['username'];
+                        $orderCount = 0;
+                        $totalSpent = 0;
 
-            // Find this user's orders
-            $userOrders = $orders->find(['username' => $username]);
-
-            $orderCount = 0;
-            $totalSpent = 0;
-
-            foreach ($userOrders as $order) {
-                $orderCount++;
-                $totalSpent += $order['total'];
-            }
-        ?>
-            <tr>
-                <td><?= htmlspecialchars($username) ?></td>
-                <td><?= $orderCount ?></td>
-                <td>₱<?= number_format($totalSpent, 2) ?></td>
-                <td>
-                    <a href="admin_user_orders.php?username=<?= urlencode($username) ?>">View Orders</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-</div>
+                        foreach ($userOrders as $order) {
+                            $orderCount++;
+                            $totalSpent += $order['total'];
+                        }
+                    ?>
+                        <tr>
+                            <td><?= htmlspecialchars($username) ?></td>
+                            <td><?= $orderCount ?></td>
+                            <td>₱<?= number_format($totalSpent, 2) ?></td>
+                            <td>
+                                <a href="admin_user_orders.php?username=<?= urlencode($username) ?>" class="menu-action view">View Orders</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>

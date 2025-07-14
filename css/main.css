@@ -1856,442 +1856,483 @@ button {
 /*             Menu Management           */
 /* ------------------------------------- */
 .menu-list-section {
-    padding: 40px 30px;
-    background-color: #EFEEE6; /* KusinaGo Cream */
-    min-height: 100vh;
+  padding: 40px 30px;
+  background-color: #efeee6; /* KusinaGo Cream */
+  min-height: 100vh;
 }
 
 .menu-list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 .menu-list-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #0E3F18;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0e3f18;
 }
 
 .menu-list-actions .menu-btn {
-    text-decoration: none;
-    padding: 10px 18px;
-    font-weight: 500;
-    border-radius: 3px;
-    transition: 0.3s;
-    margin-left: 10px;
+  text-decoration: none;
+  padding: 10px 18px;
+  font-weight: 500;
+  border-radius: 3px;
+  transition: 0.3s;
+  margin-left: 10px;
 }
 
 .menu-btn.add {
-    background-color: #0E3F18;
-    color: #EFEEE6;
+  background-color: #0e3f18;
+  color: #efeee6;
 }
 
 .menu-btn.add:hover {
-    background-color: #385A42;
+  background-color: #385a42;
 }
 
 .menu-btn.back {
-    background-color: #E66C32;
-    color: #fff;
+  background-color: #e66c32;
+  color: #fff;
 }
 
 .menu-btn.back:hover {
-    background-color: #c4551f;
+  background-color: #c4551f;
 }
 
 .menu-table-container {
-    overflow-x: auto;
-    border-radius: 4px;
-    background-color: #F5F3EB;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin: 0 auto;
+  overflow-x: auto;
+  border-radius: 4px;
+  background-color: #f5f3eb;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .menu-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 16px;
-    min-width: 800px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  min-width: 800px;
 }
 
 .menu-table thead {
-    background-color: #E66C32;
-    color: #fff;
+  background-color: #e66c32;
+  color: #fff;
 }
 
 .menu-table th,
 .menu-table td {
-    padding: 14px 20px;
-    border-bottom: 1px solid #e0dbd1;
-    text-align: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e0dbd1;
+  text-align: center;
 }
 
 .menu-table tbody tr:hover {
-    background-color: #e9e6dc;
+  background-color: #e9e6dc;
 }
 
 .menu-thumbnail {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 
 /* ------------------------------------- */
 /*         Menu Action Buttons           */
 /* ------------------------------------- */
 .menu-action {
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    display: inline-block;
-    margin-right: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  display: inline-block;
+  margin-right: 6px;
 }
 
 /* Edit Button Style */
 .menu-action.edit {
-    background-color: #385A42;
-    color: #fff;
+  background-color: #385a42;
+  color: #fff;
 }
 
 .menu-action.edit:hover {
-    background-color: #0E3F18;
+  background-color: #0e3f18;
 }
 
 /* Delete Button Style */
 .menu-action.delete {
-    background-color: #B00020;
-    color: #fff;
+  background-color: #b00020;
+  color: #fff;
 }
 
 .menu-action.delete:hover {
-    background-color: #8e0019;
+  background-color: #8e0019;
 }
 
-
 .menu-table td:nth-child(4) {
-    text-align: center;
-    vertical-align: middle;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .menu-list-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* ------------------------------------- */
 /*         Add Item Page Styling         */
 /* ------------------------------------- */
 .add-item-section {
-    background-color: #EFEEE6;
-    min-height: 100vh;
-    padding: 50px 20px;
-    font-family: 'Poppins', sans-serif;
+  background-color: #efeee6;
+  min-height: 100vh;
+  padding: 50px 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .add-item-container {
-    max-width: 650px;
-    margin: 0 auto;
-    background-color: #F5F3EB;
-    padding: 35px 40px;
-    border-radius: 18px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: #f5f3eb;
+  padding: 35px 40px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
 }
 
 .add-item-title {
-    font-size: 30px;
-    font-weight: 600;
-    color: #0E3F18;
-    text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  color: #0e3f18;
+  text-align: center;
 }
 
 .add-item-form label {
-    font-weight: 500;
-    color: #0E3F18;
-    display: block;
-    margin-top: 14px;
-    margin-bottom: 6px;
+  font-weight: 500;
+  color: #0e3f18;
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 6px;
 }
 
 .add-item-form input,
 .add-item-form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #c3c0b7;
-    background-color: #EFEDE2;
-    font-size: 15px;
-    color: #0E3F18;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #c3c0b7;
+  background-color: #efede2;
+  font-size: 15px;
+  color: #0e3f18;
 }
 
 .add-item-form input,
 .add-item-form textarea,
 .category-select {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .add-item-form textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 .input-group {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #d5d1c7;
-    padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d5d1c7;
+  padding-bottom: 10px;
 }
 
 .form-buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
 .primary-btn,
 .secondary-btn {
-    padding: 10px 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-block;
-    text-align: center;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
 }
 
 .primary-btn {
-    background-color: #0E3F18;
-    color: #EFEEE6;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    
-    padding: 14px 30px; 
-    font-size: 16px;
-    font-weight: 600;
+  background-color: #0e3f18;
+  color: #efeee6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .primary-btn:hover {
-    background-color: #385A42;
+  background-color: #385a42;
 }
 
 .secondary-btn {
-    background-color: #385A42;
-    color: #EFEEE6;
+  background-color: #385a42;
+  color: #efeee6;
 }
 
 .secondary-btn:hover {
-    background-color: #0E3F18;
+  background-color: #0e3f18;
 }
 
 /* Success/Error messages */
 .form-message {
-    text-align: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .form-message.success {
-    background-color: #d1f3d1;
-    color: #0E3F18;
+  background-color: #d1f3d1;
+  color: #0e3f18;
 }
 
 .form-message.error {
-    background-color: #fddddd;
-    color: #B00020;
+  background-color: #fddddd;
+  color: #b00020;
 }
 
 /* ------------------------------------- */
 /*          Custom File Upload           */
 /* ------------------------------------- */
 .file-upload-form {
-    width: 100%;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .file-upload-label {
-    width: 100%;
-    cursor: pointer;
-    background-color: #F5F3EB;
-    padding: 30px;
-    border-radius: 14px;
-    border: 2px dashed #385A42;
-    text-align: center;
-    transition: 0.3s ease;
+  width: 100%;
+  cursor: pointer;
+  background-color: #f5f3eb;
+  padding: 30px;
+  border-radius: 14px;
+  border: 2px dashed #385a42;
+  text-align: center;
+  transition: 0.3s ease;
 }
 
 .file-upload-label:hover {
-    border-color: #E66C32;
-    background-color: #EFEDE2;
+  border-color: #e66c32;
+  background-color: #efede2;
 }
 
 .file-upload-label input {
-    display: none;
+  display: none;
 }
 
 .file-upload-design {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #0E3F18;
-    font-size: 14px;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0e3f18;
+  font-size: 14px;
+  gap: 4px;
 }
 
 .file-upload-design svg {
-    height: 50px;
-    fill: #0E3F18;
-    margin-bottom: 10px;
+  height: 50px;
+  fill: #0e3f18;
+  margin-bottom: 10px;
 }
 
 .browse-button {
-    background-color: #0E3F18;
-    color: #EFEEE6;
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+  background-color: #0e3f18;
+  color: #efeee6;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
 .browse-button:hover {
-    background-color: #385A42;
+  background-color: #385a42;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .image-preview {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .image-preview img {
-    max-width: 100%;
-    max-height: 250px;
-    border-radius: 10px;
-    margin-top: 10px;
-    display: block;  
-    margin-left: auto;    
-    margin-right: auto;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 #upload-status {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 500;
-    color: #385A42;
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 500;
+  color: #385a42;
 }
 
 .category-select {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #c3c0b7;
-    background-color: #EFEDE2;
-    font-size: 15px;
-    color: #0E3F18;
-    font-family: 'Poppins', sans-serif;
-    appearance: none;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #c3c0b7;
+  background-color: #efede2;
+  font-size: 15px;
+  color: #0e3f18;
+  font-family: "Poppins", sans-serif;
+  appearance: none;
 }
 
 .category-select:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(230, 108, 50, 0.2);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(230, 108, 50, 0.2);
 }
 
 /* ----------------------------- */
 /*     Delete Confirmation      */
 /* ----------------------------- */
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
 .modal {
-    background: #F5F3EB;
-    padding: 30px;
-    border-radius: 16px;
-    max-width: 400px;
-    width: 90%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
+  background: #f5f3eb;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .modal h3 {
-    color: #0E3F18;
-    margin-bottom: 10px;
-    font-size: 20px;
+  color: #0e3f18;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .modal p {
-    color: #333;
-    font-size: 15px;
-    margin-bottom: 25px;
+  color: #333;
+  font-size: 15px;
+  margin-bottom: 25px;
 }
 
 .modal-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .cancel-btn,
 .confirm-btn {
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 14px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.3s ease;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
 .cancel-btn {
-    background: #EFEDE2;
-    color: #0E3F18;
-    border: 1px solid #ccc;
+  background: #efede2;
+  color: #0e3f18;
+  border: 1px solid #ccc;
 }
 
 .cancel-btn:hover {
-    background: #093311;
+  background: #093311;
 }
 
 .confirm-btn {
-    background: #B00020;
-    color: #fff;
-    border: none;
+  background: #b00020;
+  color: #fff;
+  border: none;
 }
 
 .confirm-btn:hover {
-    background: #8e0019;
+  background: #8e0019;
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+
+.menu-action.view {
+  background-color: var(--dark-green);
+  color: #fff;
+}
+
+.menu-action.view:hover {
+  background-color: var(--orange);
+}
+
+.menu-btn.back {
+  background-color: #e66c32;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn.back:hover {
+  background-color: #c4551f;
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 100px 20px;
+  color: #0e3f18;
+}
+
+.empty-orders iconify-icon {
+  font-size: 64px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.empty-orders p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e3f18;
 }
