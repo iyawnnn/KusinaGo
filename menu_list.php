@@ -13,26 +13,23 @@ $items = $collection->find();
 <head>
     <meta charset="UTF-8">
     <title>Menu Management | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css"> <!-- Connect your main stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="uploads/favicon.svg">
 </head>
 <body>
 
-<?php include 'include/header.php'; ?> <!-- Include admin navbar -->
+<?php include 'include/header.php'; ?>
 
 <section class="menu-list-section">
     <div class="menu-list-inner">
 
-        <!-- Header: Title + Buttons -->
         <div class="menu-list-header">
             <h2 class="menu-list-title">Manage Menu Items</h2>
             <div class="menu-list-actions">
                 <a href="add_item.php" class="menu-btn add">Add New Item</a>
-                <a href="dashboard.php" class="menu-btn back">Back to Dashboard</a>
             </div>
         </div>
 
-        <!-- Table -->
         <div class="menu-table-container">
             <table class="menu-table">
                 <thead>
@@ -53,7 +50,10 @@ $items = $collection->find();
                             <td><img src="<?= htmlspecialchars($item['image']) ?>" class="menu-thumbnail"></td>
                             <td>
                                 <a href="edit_item.php?id=<?= $item['_id'] ?>" class="menu-action edit">Edit</a>
-                                <a href="delete_item.php?id=<?= $item['_id'] ?>" class="menu-action delete" onclick="return confirm('Are you sure?')">Delete</a>
+                                <button 
+                                    class="menu-action delete" 
+                                    onclick="openDeleteModal('<?= $item['_id'] ?>')"
+                                >Delete</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -63,6 +63,37 @@ $items = $collection->find();
 
     </div>
 </section>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-overlay hidden" id="deleteModal">
+    <div class="modal">
+        <h3>Confirm Deletion</h3>
+        <p>Are you sure you want to delete this menu item? This action cannot be undone.</p>
+        <div class="modal-buttons">
+            <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+            <a href="#" id="confirmDeleteBtn" class="confirm-btn">Delete</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openDeleteModal(id) {
+        const modal = document.getElementById('deleteModal');
+        const confirmBtn = document.getElementById('confirmDeleteBtn');
+        confirmBtn.href = 'delete_item.php?id=' + id;
+        modal.classList.remove('hidden');
+    }
+
+    function closeDeleteModal() {
+        const modal = document.getElementById('deleteModal');
+        modal.classList.add('hidden');
+    }
+
+    // Close on ESC
+    window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDeleteModal();
+    });
+</script>
 
 </body>
 </html>
