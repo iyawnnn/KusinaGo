@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                             <div class="method-info">
                                 <img src="uploads/creditcard.svg" alt="Credit Card" />
                                 <p>Credit Card</p>
-                                <input type="radio" name="payment_method" value="Credit Car" required />
+                                <input type="radio" name="payment_method" value="Credit Card" required />
                             </div>
                         </label>
                     </div>
