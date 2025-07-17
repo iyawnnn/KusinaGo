@@ -83,48 +83,77 @@ button {
 }
 
 .header-container {
-  max-width: 900px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 var(--space-md);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: var(--space-lg);
+  justify-content: space-between;
+  gap: var(--space-md);
 }
 
+/* Left and Right Navs */
 .nav-left,
 .nav-right {
   display: flex;
-  gap: 50px;
   align-items: center;
+  gap: 40px;
   flex: 1;
 }
 
 .nav-left {
-  justify-content: right;
+  justify-content: flex-end;
+}
+
+/* Logo Centered Between Navs */
+.nav-center {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
   height: 60px;
   object-fit: contain;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 0 30px;
 }
 
-.nav-center {
-  flex-shrink: 0;
-}
-
+/* Navigation Links */
 .header a {
   color: var(--cream);
   font-weight: 500;
   font-size: 1rem;
+  padding: 8px 5px;
+  display: inline-block;
   transition: color 0.2s ease;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 .header a:hover {
   color: var(--orange);
 }
+
+/* Logout Icon Positioning */
+.nav-logout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.logout-icon iconify-icon {
+  font-size: 24px;
+  color: var(--cream);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.logout-icon iconify-icon:hover {
+  color: var(--orange);
+}
+
 
 /* -------------------------------------------------- */
 /*                Badges & Icons                      */
