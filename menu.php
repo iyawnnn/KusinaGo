@@ -95,6 +95,8 @@ $displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pang
 
 </body>
 
+<?php include 'include/footer.php'; ?>
+
 <script>
   // Save scroll position before form submit
   document.querySelectorAll("form").forEach(form => {

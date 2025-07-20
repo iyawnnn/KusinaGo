@@ -158,4 +158,6 @@ $menuCollection = $client->food_ordering->menu;
 
 </body>
 
+<?php include 'include/footer.php'; ?>
+
 </html>

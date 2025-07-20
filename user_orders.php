@@ -89,4 +89,7 @@ function hideCancelModal() {
 </script>
 
 </body>
+
+<?php include 'include/footer.php'; ?>
+
 </html>
