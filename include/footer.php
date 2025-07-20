@@ -4,7 +4,8 @@
     <!-- Logo & Tagline -->
     <div class="footer-section">
       <img src="uploads/KusinoGo Logo.svg" alt="KusinaGo Logo" class="footer-logo">
-      <p class="footer-tagline">KusinaGo — Bringing Filipino flavors to your doorstep.</p>
+      <p class="footer-tagline">Bringing Filipino flavors</p>
+      <p class="footer-tagline"> to your doorstep. </p>
     </div>
 
     <!-- Quick Links -->
