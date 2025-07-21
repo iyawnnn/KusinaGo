@@ -47,6 +47,7 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
 
     <?php include 'include/header.php'; ?>
 
+    <main>
     <div class="kg-orders-wrapper">
 
         <!-- Filter -->
@@ -100,6 +101,7 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
         <?php endforeach; ?>
 
     </div>
+    </main>
 
 </body>
 

@@ -27,6 +27,7 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
 
 <?php include 'include/header.php'; ?>
 
+<main>
 <div class="order-history-wrapper">
     <h2 class="order-history-title">My Orders</h2>
 
@@ -87,6 +88,7 @@ function hideCancelModal() {
     document.getElementById('cancelModal').style.display = 'none';
 }
 </script>
+</main>
 
 </body>
 

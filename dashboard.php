@@ -69,6 +69,7 @@ foreach ($monthlyRevenueCursor as $order) {
 
     <?php include 'include/header.php'; ?>
 
+    <main>
     <div class="kg-dashboard-wrapper">
         <div class="kg-dashboard-header">
             <h2 class="kg-dashboard-welcome">Welcome, <?= htmlspecialchars($adminName) ?></h2>
@@ -159,6 +160,7 @@ foreach ($monthlyRevenueCursor as $order) {
             </div>
         </div>
     </div>
+    </main>
 
 </body>
 

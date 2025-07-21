@@ -28,7 +28,7 @@ $menuCollection = $client->food_ordering->menu;
 <body>
 
     <?php include 'include/header.php'; ?>
-
+    <main>
     <section class="cart-section">
         <div class="cart-container">
             <h2 class="section-heading">Your Cart</h2>
@@ -118,6 +118,8 @@ $menuCollection = $client->food_ordering->menu;
         </div>
     </section>
 
+    </main>
+
     <script>
         document.querySelectorAll('.qty-btn').forEach(button => {
             button.addEventListener('click', function() {
@@ -155,9 +157,8 @@ $menuCollection = $client->food_ordering->menu;
         });
     </script>
 
+    <?php include 'include/footer.php'; ?>
 
 </body>
-
-<?php include 'include/footer.php'; ?>
 
 </html>

@@ -38,6 +38,7 @@ $report = $ordersCollection->aggregate($pipeline);
 
     <?php include 'include/header.php'; ?>
 
+    <main>
     <section class="report-section">
         <h2 class="report-heading">Sales Report</h2>
 
@@ -74,6 +75,7 @@ $report = $ordersCollection->aggregate($pipeline);
             </a>
         </div>
     </section>
+    </main>
 
 </body>
 

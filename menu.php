@@ -35,6 +35,7 @@ $displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pang
 
     <?php include 'include/header.php'; ?>
 
+    <main>
     <?php foreach ($displayOrder as $category): ?>
         <?php if (!isset($groupedItems[$category])) continue; ?>
 
@@ -92,6 +93,7 @@ $displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pang
             </div>
         </div>
     <?php endforeach; ?>
+    </main>
 
 </body>
 

@@ -36,6 +36,17 @@ body {
   background-color: var(--cream);
   color: var(--dark-green);
   padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html, body {
+  height: 100%;
+}
+
+main {
+  flex: 1;
 }
 
 h1,
