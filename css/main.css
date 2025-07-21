@@ -2681,3 +2681,12 @@ button {
 }
 
 
+.login-success {
+    background-color: #e6f4ea;
+    color: #2b7a2b;
+    border: 1px solid #a6d8a8;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}

@@ -16,17 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === '' || $password === '') {
         $error = 'All fields are required.';
     } else {
-        // Check if username already exists
         $existingUser = $usersCollection->findOne(['username' => $username]);
 
         if ($existingUser) {
             $error = 'Username already taken.';
         } else {
-            // Insert new user
             $usersCollection->insertOne([
                 'username' => $username,
                 'password' => password_hash($password, PASSWORD_DEFAULT)
-
             ]);
 
             $success = 'Account created successfully. You may now <a href="login.php">login</a>.';
@@ -36,34 +33,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <title>Sign Up | KusinaGo</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
-<body>
 
-    <h2>Sign Up</h2>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <h2 class="login-title">Create an Account</h2>
+                <p class="login-subtitle">Join the KusinaGo experience</p>
+            </div>
 
-    <?php if ($error): ?>
-        <p style="color:red"><?= $error ?></p>
-    <?php endif; ?>
+            <?php if ($error): ?>
+                <div class="login-error"><?= htmlspecialchars($error) ?></div>
+            <?php endif; ?>
 
-    <?php if ($success): ?>
-        <p style="color:green"><?= $success ?></p>
-    <?php endif; ?>
+            <?php if ($success): ?>
+                <div class="login-success"><?= $success ?></div>
+            <?php endif; ?>
 
-    <form method="post">
-        <label>Username:</label><br>
-        <input type="text" name="username" required><br><br>
+            <form method="post" class="login-form">
+                <div class="login-field">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Choose a username" required>
+                </div>
 
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
+                <div class="login-field">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Choose a password" required>
+                </div>
 
-        <button type="submit">Sign Up</button>
-    </form>
+                <button type="submit" class="login-submit-btn">Sign Up</button>
 
-    <br>
-    <a href="index.php">Back to Home</a> | <a href="login.php">Already have an account?</a>
+                <div class="login-signup-link">
+                    Already have an account? <a href="login.php">Log in here</a>
+                </div>
+            </form>
 
+            <div class="login-footer">
+                <a href="index.php" class="login-back-link">← Back to Home</a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

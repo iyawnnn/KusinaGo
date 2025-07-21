@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $collection = $db->users;
         $user = $collection->findOne(['username' => $username]);
 
-        if ($user && $user['password'] === $password) {
+        if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user'] = $username;
             header("Location: index.php");
             exit;
