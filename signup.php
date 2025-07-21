@@ -12,9 +12,12 @@ $success = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
+    $confirmPassword = trim($_POST['confirm_password'] ?? '');
 
-    if ($username === '' || $password === '') {
+    if ($username === '' || $password === '' || $confirmPassword === '') {
         $error = 'All fields are required.';
+    } elseif ($password !== $confirmPassword) {
+        $error = 'Passwords do not match.';
     } else {
         $existingUser = $usersCollection->findOne(['username' => $username]);
 
@@ -31,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="login-field">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Choose a password" required>
+                </div>
+
+                <div class="login-field">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Re-enter your password" required>
                 </div>
 
                 <button type="submit" class="login-submit-btn">Sign Up</button>
