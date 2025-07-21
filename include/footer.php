@@ -4,8 +4,8 @@
     <!-- Logo & Tagline -->
     <div class="footer-section">
       <img src="uploads/KusinoGo Logo.svg" alt="KusinaGo Logo" class="footer-logo">
-      <p class="footer-tagline">Bringing Filipino flavors</p>
-      <p class="footer-tagline"> to your doorstep. </p>
+      <p class="footer-tagline">Lutong Bahay, </p>
+      <p class="footer-tagline">Diretso Sa'yo </p>
     </div>
 
     <!-- Quick Links -->
