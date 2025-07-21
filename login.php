@@ -10,11 +10,10 @@ $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
-    $role = $_POST['role'] ?? 'user';
 
-    if ($role === 'admin') {
-        // Hardcoded admin credentials
-        if ($username === 'admin' && $password === '12345') {
+    if ($username === 'admin') {
+        // Admin login (hardcoded)
+        if ($password === '12345') {
             $_SESSION['admin'] = $username;
             header("Location: dashboard.php");
             exit;
@@ -22,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Invalid admin credentials.';
         }
     } else {
-        // For user login (assuming users are stored in MongoDB)
+        // User login from MongoDB
         $collection = $db->users;
         $user = $collection->findOne(['username' => $username]);
 
@@ -37,35 +36,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <title>Login | KusinaGo</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="uploads/favicon.svg">
 </head>
-<body>
-    <h2>🔐 Login</h2>
 
-    <?php if ($error): ?>
-        <p style="color:red"><?= $error ?></p>
-    <?php endif; ?>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <h2 class="login-title">Welcome to KusinaGo</h2>
+                <p class="login-subtitle">Please log in to continue</p>
+            </div>
 
-    <form method="post">
-        <label>Username:</label><br>
-        <input type="text" name="username" required placeholder="Enter your username"><br><br>
+            <?php if ($error): ?>
+                <div class="login-error"><?= htmlspecialchars($error) ?></div>
+            <?php endif; ?>
 
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
+            <form method="post" class="login-form">
+                <div class="login-field">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username" required>
+                </div>
 
-        <label>Login as:</label><br>
-        <select name="role">
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-        </select><br><br>
+                <div class="login-field">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                </div>
 
-        <button type="submit">Login</button>
-    </form>
+                <button type="submit" class="login-submit-btn">Login</button>
 
-    <br>
-    <a href="index.php">Back to Home</a>
+                <div class="login-signup-link">
+                    Don't have an account? <a href="signup.php">Sign up here</a>
+                </div>
+
+            </form>
+
+            <div class="login-footer">
+                <a href="index.php" class="login-back-link">← Back to Home</a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

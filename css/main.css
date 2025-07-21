@@ -2550,3 +2550,134 @@ button {
   font-size: 0.9rem;
   color: #ccc;
 }
+
+/* ---------------------------- */
+/*        Login Page Styles     */
+/* ---------------------------- */
+.login-body {
+    background-color: #EFEEE6;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 20px;
+}
+
+.login-box {
+    background-color: #f5f3eb;
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0e3f18;
+    margin-bottom: 5px;
+}
+
+.login-subtitle {
+    color: #385a42;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.login-error {
+    background-color: #ffe6e1;
+    color: #b53b1d;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-field {
+    text-align: left;
+}
+
+.login-field label {
+    font-weight: 500;
+    color: #0e3f18;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.login-field input,
+.login-field select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #efeee6;
+    color: #0e3f18;
+    outline: none;
+    transition: 0.2s;
+}
+
+.login-field input:focus,
+.login-field select:focus {
+    border-color: #e66c32;
+}
+
+.login-submit-btn {
+    background-color: #e66c32;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-submit-btn:hover {
+    background-color: #c4551f;
+}
+
+.login-footer {
+    margin-top: 20px;
+}
+
+.login-back-link {
+    color: #385a42;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.login-back-link:hover {
+    text-decoration: underline;
+}
+
+.login-signup-link {
+    text-align: center;
+    font-size: 14px;
+    color: #385A42;
+}
+
+.login-signup-link a {
+    color: #E66C32;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-signup-link a:hover {
+    text-decoration: underline;
+}
+
+
