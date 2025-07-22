@@ -35,6 +35,7 @@ if (!$order) {
 
     <?php include 'include/header.php'; ?>
 
+    <main>
     <div class="order-receipt-container">
         <div class="order-receipt-header">
             <h2>Order Receipt</h2>
@@ -72,6 +73,7 @@ if (!$order) {
             </a>
         </div>
     </div>
+    </main>
 
 </body>
 
