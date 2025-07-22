@@ -75,6 +75,8 @@ $orders = iterator_to_array($ordersCursor);
         </div>
     </main>
 
+    <?php include 'include/footer_admin.php'; ?>
+
 </body>
 
 </html>

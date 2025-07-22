@@ -1897,8 +1897,9 @@ button {
 /* ------------------------------------- */
 .menu-list-section {
   padding: 40px 30px;
-  background-color: #efeee6; /* KusinaGo Cream */
+  background-color: #efeee6; 
   min-height: 100vh;
+  margin-top: 50px;
 }
 
 .menu-list-header {
@@ -2680,7 +2681,6 @@ button {
     text-decoration: underline;
 }
 
-
 .login-success {
     background-color: #e6f4ea;
     color: #2b7a2b;
@@ -2689,4 +2689,19 @@ button {
     margin-bottom: 15px;
     border-radius: 4px;
     font-size: 14px;
+}
+
+.admin-footer {
+  background-color: var(--dark-green);
+  margin-top: 60px;
+  color: #EFEEE6;
+  font-size: 0.875rem;
+  padding: 15px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }

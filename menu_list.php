@@ -95,5 +95,7 @@ $items = $collection->find();
     });
 </script>
 
+<?php include 'include/footer_admin.php'; ?>
+
 </body>
 </html>

@@ -28,48 +28,52 @@ $items = $menuCollection->find();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Inventory Management | KusinaGo</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="uploads/favicon.svg">
 </head>
+
 <body>
-<?php include 'include/header.php'; ?>
+    <?php include 'include/header.php'; ?>
 
-<main class="admin-content">
-    <section class="admin-section">
-        <h2 class="admin-section-title">Inventory Management</h2>
+    <main class="admin-content">
+        <section class="admin-section">
+            <h2 class="admin-section-title">Inventory Management</h2>
 
-        <div class="admin-table-wrapper">
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Current Stock</th>
-                        <th>Update Stock</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($items as $item): ?>
+            <div class="admin-table-wrapper">
+                <table class="admin-table">
+                    <thead>
                         <tr>
-                            <td><?= htmlspecialchars($item['name']) ?></td>
-                            <td><?= $item['stock'] ?? 0 ?></td>
-                            <td>
-                                <form method="post" class="stock-form">
-                                    <input type="hidden" name="item_id" value="<?= $item['_id'] ?>">
-                                    <input type="number" name="stock" min="0" value="<?= $item['stock'] ?? 0 ?>" required>
-                                    <button type="submit" class="btn-update">Update</button>
-                                </form>
-                            </td>
+                            <th>Item</th>
+                            <th>Current Stock</th>
+                            <th>Update Stock</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-    </section>
-</main>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($items as $item): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($item['name']) ?></td>
+                                <td><?= $item['stock'] ?? 0 ?></td>
+                                <td>
+                                    <form method="post" class="stock-form">
+                                        <input type="hidden" name="item_id" value="<?= $item['_id'] ?>">
+                                        <input type="number" name="stock" min="0" value="<?= $item['stock'] ?? 0 ?>" required>
+                                        <button type="submit" class="btn-update">Update</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
 
-<?php include 'include/footer.php'; ?>
+    <?php include 'include/footer_admin.php'; ?>
+
 </body>
+
 </html>

@@ -103,6 +103,7 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
     </div>
     </main>
 
+    <?php include 'include/footer_admin.php'; ?>
 </body>
 
 </html>

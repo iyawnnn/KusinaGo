@@ -160,8 +160,11 @@ foreach ($monthlyRevenueCursor as $order) {
             </div>
         </div>
     </div>
-    </main>
 
+    <?php include 'include/footer_admin.php'; ?>
+
+    </main>
+    
 </body>
 
 </html>

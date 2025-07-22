@@ -142,5 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </section>
 
+<?php include 'include/footer_admin.php'; ?>
+
 </body>
 </html>
