@@ -78,7 +78,7 @@ if ($loggedInAdmin) {
           <iconify-icon icon="mdi:logout"></iconify-icon>
         </a>
       <?php else: ?>
-        <a href="<?= BASE_URL ?>login.php">Login</a>
+        <a href="<?= BASE_URL ?>auth/login.php">Login</a>
       <?php endif; ?>
     </div>
 
