@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -31,14 +31,15 @@ $orders = iterator_to_array($ordersCursor);
 <head>
     <meta charset="UTF-8">
     <title>Orders of <?= htmlspecialchars($username) ?> | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 
 <body>
 
-    <?php include 'include/header.php'; ?>
+    <?php include '../include/header.php'; ?>
 
     <main>
         <div class="kg-orders-wrapper">
@@ -75,7 +76,7 @@ $orders = iterator_to_array($ordersCursor);
         </div>
     </main>
 
-    <?php include 'include/footer_admin.php'; ?>
+    <?php include '../include/footer_admin.php'; ?>
 
 </body>
 

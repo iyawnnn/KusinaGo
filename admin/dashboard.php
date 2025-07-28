@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -60,14 +60,15 @@ foreach ($monthlyRevenueCursor as $order) {
 
 <head>
     <title>Admin Dashboard | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 
 <body>
 
-    <?php include 'include/header.php'; ?>
+    <?php include '../include/header.php'; ?>
 
     <main>
     <div class="kg-dashboard-wrapper">
@@ -152,8 +153,8 @@ foreach ($monthlyRevenueCursor as $order) {
         <div class="kg-dashboard-section">
             <h3 class="kg-dashboard-section-title">Quick Actions</h3>
             <div class="kg-dashboard-actions">
-                <a href="menu_list.php" class="kg-dashboard-btn">View Menu</a>
-                <a href="add_item.php" class="kg-dashboard-btn">Add New Item</a>
+                <a href="../menu/menu_list.php" class="kg-dashboard-btn">View Menu</a>
+                <a href="../menu/add_item.php" class="kg-dashboard-btn">Add New Item</a>
                 <a href="admin_report.php" class="kg-dashboard-btn">Sales Report</a>
                 <a href="admin_users.php" class="kg-dashboard-btn">User Stats</a>
                 <a href="admin_inventory.php" class="kg-dashboard-btn">Inventory</a>
@@ -161,7 +162,7 @@ foreach ($monthlyRevenueCursor as $order) {
         </div>
     </div>
 
-    <?php include 'include/footer_admin.php'; ?>
+    <?php include '../include/footer_admin.php'; ?>
 
     </main>
     

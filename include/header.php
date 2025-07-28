@@ -36,7 +36,7 @@ if ($loggedInAdmin) {
         <a href="<?= BASE_URL ?>menu/menu.php">Menu</a>
       <?php elseif ($loggedInAdmin): ?>
         <a href="<?= BASE_URL ?>admin/dashboard.php">Dashboard</a>
-        <a href="<?= BASE_URL ?>admin/menu_list.php">Menu</a>
+        <a href="<?= BASE_URL ?>menu/menu_list.php">Menu</a>
         <a href="<?= BASE_URL ?>admin/admin_orders.php" class="btn-badge">
           Orders
           <?php if ($pendingCount > 0): ?>

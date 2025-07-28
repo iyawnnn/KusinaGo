@@ -1,7 +1,7 @@
 <?php
-include 'admin_auth.php';
+include '../auth/admin_auth.php';
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -30,13 +30,14 @@ $report = $ordersCollection->aggregate($pipeline);
 
 <head>
     <title>Sales Report | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 
 <body>
 
-    <?php include 'include/header.php'; ?>
+    <?php include '../include/header.php'; ?>
 
     <main>
         <section class="report-section">
@@ -77,7 +78,7 @@ $report = $ordersCollection->aggregate($pipeline);
         </section>
     </main>
 
-    <?php include 'include/footer_admin.php'; ?>
+    <?php include '../include/footer_admin.php'; ?>
 
 </body>
 

@@ -1,6 +1,6 @@
 <?php
-include 'admin_auth.php';
-require __DIR__ . '/vendor/autoload.php';
+include '../auth/admin_auth.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $collection = $client->food_ordering->menu;
@@ -71,12 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Edit Menu Item | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 <body>
 
-<?php include 'include/header.php'; ?>
+<?php include '../include/header.php'; ?>
 
 <section class="add-item-section">
     <div class="add-item-container">
@@ -128,13 +129,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </label>
             </div>
 
-            <?php if (!empty($item['image'])): ?>
-                <div class="image-preview" style="margin-top: 10px; text-align: center;">
-                    <p>Current Image Preview:</p>
-                    <img src="<?= htmlspecialchars($item['image']) ?>" alt="Current Image" style="max-width: 180px; border-radius: 10px;">
-                </div>
-            <?php endif; ?>
-
             <div class="form-buttons">
                 <button type="submit" class="primary-btn">Update Item</button>
             </div>
@@ -142,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </section>
 
-<?php include 'include/footer_admin.php'; ?>
+<?php include '../include/footer_admin.php'; ?>
 
 </body>
 </html>

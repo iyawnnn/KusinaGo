@@ -1,6 +1,6 @@
 <?php
-include 'admin_auth.php';
-require __DIR__ . '/vendor/autoload.php';
+include '../auth/admin_auth.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $collection = $client->food_ordering->menu;
@@ -13,12 +13,13 @@ $items = $collection->find();
 <head>
     <meta charset="UTF-8">
     <title>Menu Management | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 <body>
 
-<?php include 'include/header.php'; ?>
+<?php include '../include/header.php'; ?>
 
 <section class="menu-list-section">
     <div class="menu-list-inner">
@@ -47,7 +48,7 @@ $items = $collection->find();
                             <td><?= htmlspecialchars($item['name']) ?></td>
                             <td>₱<?= number_format($item['price'], 2) ?></td>
                             <td><?= htmlspecialchars($item['category']) ?></td>
-                            <td><img src="<?= htmlspecialchars($item['image']) ?>" class="menu-thumbnail"></td>
+                            <td><img src="../assets/item-pictures/<?= htmlspecialchars($item['image']) ?>" class="menu-thumbnail"></td>
                             <td>
                                 <a href="edit_item.php?id=<?= $item['_id'] ?>" class="menu-action edit">Edit</a>
                                 <button 
@@ -95,7 +96,7 @@ $items = $collection->find();
     });
 </script>
 
-<?php include 'include/footer_admin.php'; ?>
+<?php include '../include/footer_admin.php'; ?>
 
 </body>
 </html>

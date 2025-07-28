@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';    
 
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -32,12 +32,13 @@ $items = $menuCollection->find();
 <head>
     <meta charset="UTF-8">
     <title>Inventory Management | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 
 <body>
-    <?php include 'include/header.php'; ?>
+    <?php include '../include/header.php'; ?>
 
     <main class="admin-content">
         <section class="admin-section">
@@ -72,7 +73,7 @@ $items = $menuCollection->find();
         </section>
     </main>
 
-    <?php include 'include/footer_admin.php'; ?>
+    <?php include '../include/footer_admin.php'; ?>
 
 </body>
 

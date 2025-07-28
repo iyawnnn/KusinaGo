@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -39,13 +39,14 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
 
 <head>
     <title>Orders | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 
 <body>
 
-    <?php include 'include/header.php'; ?>
+    <?php include '../include/header.php'; ?>
 
     <main>
     <div class="kg-orders-wrapper">
@@ -103,7 +104,7 @@ $orders = $collection->find($filter, ['sort' => ['ordered_at' => -1]]);
     </div>
     </main>
 
-    <?php include 'include/footer_admin.php'; ?>
+    <?php include '../include/footer_admin.php'; ?>
 </body>
 
 </html>

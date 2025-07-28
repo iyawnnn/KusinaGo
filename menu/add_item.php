@@ -1,6 +1,6 @@
 <?php
-include 'admin_auth.php';
-require __DIR__ . '/vendor/autoload.php';
+include '../auth/admin_auth.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $collection = $client->food_ordering->menu;
@@ -49,12 +49,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Add Menu Item | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 
 <body>
-    <?php include 'include/header.php'; ?>
+    <?php include '../include/header.php'; ?>
 
     <section class="add-item-section">
         <div class="add-item-container">
@@ -149,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         });
     </script>
 
-    <?php include 'include/footer_admin.php'; ?>
+    <?php include '../include/footer_admin.php'; ?>
 
 </body>
 
