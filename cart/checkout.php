@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require_once __DIR__ . '/../config.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use MongoDB\BSON\ObjectId;
 
@@ -33,12 +34,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     <head>
         <title>Checkout | KusiaGo</title>
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="icon" href="uploads/favicon.svg">
+        <title>My Orders | KusinaGo</title>
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/responsive.css">
+        <link rel="icon" href="../assets/icons/favicon.svg">
     </head>
 
     <body>
-        <?php include 'include/header.php'; ?>
+        <?php include '../include/header.php'; ?>
 
         <main>
             <div class="checkout-form-wrapper">
@@ -85,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         <div class="payment-method-group">
                             <label class="payment-method">
                                 <div class="method-info">
-                                    <img src="uploads/cod.svg" alt="COD" />
+                                    <img src="../assets/icons/cod.svg" alt="COD" />
                                     <p>Cash on Delivery</p>
                                     <input type="radio" name="payment_method" value="Cash on Delivery" required />
                                 </div>
@@ -93,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                             <label class="payment-method">
                                 <div class="method-info">
-                                    <img src="uploads/gcash.svg" alt="GCash" />
+                                    <img src="../assets/icons/gcash.svg" alt="GCash" />
                                     <p>GCash</p>
                                     <input type="radio" name="payment_method" value="GCash" required />
                                 </div>
@@ -101,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                             <label class="payment-method">
                                 <div class="method-info">
-                                    <img src="uploads/creditcard.svg" alt="Credit Card" />
+                                    <img src="../assets/icons/creditcard.svg" alt="Credit Card" />
                                     <p>Credit Card</p>
                                     <input type="radio" name="payment_method" value="Credit Card" required />
                                 </div>
@@ -142,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         </main>
     </body>
 
-    <?php include 'include/footer.php'; ?>
+    <?php include '../include/footer.php'; ?>
 
     </html>
 <?php
@@ -187,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
         }
 
         unset($_SESSION['cart']);
-        header("Location: receipt.php");
+        header("Location: " . BASE_URL . "orders/receipt.php");
         exit;
     } else {
         echo "❌ Order failed!";

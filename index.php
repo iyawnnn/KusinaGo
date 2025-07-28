@@ -11,7 +11,7 @@ try {
   $topSelling = $ordersCollection->aggregate([
     ['$unwind' => '$items'],
     ['$group' => [
-      '_id' => '$items._id',  // ✅ Use '_id' from item object
+      '_id' => '$items._id',
       'totalSold' => ['$sum' => '$items.quantity']
     ]],
     ['$sort' => ['totalSold' => -1]],
@@ -39,7 +39,7 @@ try {
   <title>Home | KusinaGo</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/responsive.css">
-  <link rel="icon" href="uploads/favicon.svg">
+  <link rel="icon" href="assets/icons/favicon.svg">
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 
@@ -49,9 +49,9 @@ try {
 
   <section class="home-hero">
     <div class="hero-img-wrapper">
-      <img src="uploads/header.svg" alt="Luxury Filipino Dish">
+      <img src="<?= UPLOADS_PATH ?>header.svg" alt="Luxury Filipino Dish">
 
-      <a href="menu.php" class="hero-image-btn">
+      <a href="menu/menu.php" class="hero-image-btn">
         <span class="hero-image-btn__icon-wrapper">
           <svg
             viewBox="0 0 14 15"
@@ -86,7 +86,7 @@ try {
     <div class="featured-container">
       <?php foreach ($featuredItems as $item): ?>
         <div class="featured-item">
-          <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="featured-img">
+          <img src="assets/item-pictures/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="featured-img">
           <div class="featured-info">
             <span class="category"><?= htmlspecialchars($item['category'] ?? 'Uncategorized') ?></span>
             <h3><?= htmlspecialchars($item['name']) ?></h3>
@@ -113,7 +113,7 @@ try {
 
       </div>
       <div class="story-image">
-        <img src="uploads/Chef.jpg" alt="Elegant Filipino Dish">
+        <img src="assets/uploads/Chef.jpg" alt="Elegant Filipino Dish">
       </div>
     </div>
   </section>
@@ -156,21 +156,21 @@ try {
     <div class="testimonial-cards">
 
       <div class="testimonial">
-        <img src="uploads/customer1.jpg" alt="Customer 1" class="profile-pic">
+        <img src="assets/uploads/customer1.jpg" alt="Customer 1" class="profile-pic">
         <div class="customer-name">Isabella Cruz</div>
         <div class="customer-role">Food Blogger</div>
         <p>“From packaging to taste — KusinaGo delivered a fine dining experience right to our doorstep.”</p>
       </div>
 
       <div class="testimonial">
-        <img src="uploads/customer2.webp" alt="Customer 2" class="profile-pic">
+        <img src="assets/uploads/customer2.webp" alt="Customer 2" class="profile-pic">
         <div class="customer-name">Trisha Dela Rosa</div>
         <div class="customer-role">Corporate Chef</div>
         <p>“Truly elegant. The balance of flavor and presentation is unmatched.”</p>
       </div>
 
       <div class="testimonial">
-        <img src="uploads/customer3.jpg" alt="Customer 3" class="profile-pic">
+        <img src="assets/uploads/customer3.jpg" alt="Customer 3" class="profile-pic">
         <div class="customer-name">Clarisse Tan</div>
         <div class="customer-role">Interior Designer</div>
         <p>“It's not just food — it's a full luxurious experience. Everything feels premium.”</p>

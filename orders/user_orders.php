@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 date_default_timezone_set('Asia/Manila');
 
 if (!isset($_SESSION['user'])) {
@@ -20,12 +20,13 @@ $orders = $ordersCollection->find(['username' => $username], ['sort' => ['ordere
 <html>
 <head>
     <title>My Orders | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 <body>
 
-<?php include 'include/header.php'; ?>
+<?php include '../include/header.php'; ?>
 
 <main>
 <div class="order-history-wrapper">
@@ -92,6 +93,6 @@ function hideCancelModal() {
 
 </body>
 
-<?php include 'include/footer.php'; ?>
+<?php include '../include/footer.php'; ?>
 
 </html>

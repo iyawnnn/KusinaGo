@@ -59,9 +59,7 @@ if ($loggedInAdmin) {
       <?php if ($loggedInUser): ?>
         <a href="<?= BASE_URL ?>cart/cart.php" class="btn-badge">
           Cart
-          <?php if ($cartCount > 0): ?>
-            <span class="badge cart-badge"><?= $cartCount ?></span>
-          <?php endif; ?>
+          <span class="badge cart-badge" id="cart-count"><?= $cartCount ?></span>
         </a>
         <a href="<?= BASE_URL ?>orders/user_orders.php">My Orders</a>
       <?php elseif ($loggedInAdmin): ?>

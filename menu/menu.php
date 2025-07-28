@@ -69,14 +69,13 @@ $displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pang
 
                                 <?php if ($loggedInUser): ?>
                                     <?php if ($outOfStock): ?>
-                                        <p class="out-of-stock">❌ Out of Stock</p>
+                                        <p class="out-of-stock">Out of Stock</p>
                                         <button class="cart-btn" disabled>Add to Cart</button>
                                     <?php elseif ($reachedLimit): ?>
-                                        <p class="out-of-stock">🛑 Max stock (<?= $stock ?>) in cart</p>
+                                        <p class="out-of-stock">Max stock (<?= $stock ?>) in cart</p>
                                         <button class="cart-btn" disabled>Add to Cart</button>
                                     <?php else: ?>
-                                        <form method="post" action="add_to_cart.php">
-                                            <input type="hidden" name="item_id" value="<?= $item['_id'] ?>">
+                                        <form class="add-to-cart-form" data-id="<?= $item['_id'] ?>" action="javascript:void(0);" style="display:inline;">
                                             <button type="submit" class="cart-btn">Add to Cart</button>
                                         </form>
                                     <?php endif; ?>
@@ -100,23 +99,38 @@ $displayOrder = ['Handa sa Hapág (Main Dishes)', 'Panimula (Appetizers)', 'Pang
 <?php include '../include/footer.php'; ?>
 
 <script>
-    // Save scroll position before form submit
-    document.querySelectorAll("form").forEach(form => {
-        form.addEventListener("submit", () => {
-            localStorage.setItem("scrollPos", window.scrollY);
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.add-to-cart-form').forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const itemId = this.getAttribute('data-id');
+
+            const response = await fetch('../cart/add_to_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `item_id=${encodeURIComponent(itemId)}`
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success) {
+                    // Update cart count
+                    const badge = document.getElementById('cart-count');
+                    if (badge) {
+                        const current = parseInt(badge.textContent) || 0;
+                        badge.textContent = current + 1;
+                    }
+
+                    e.target.querySelector('button').blur();
+                }
+            }
         });
     });
-
-    // Restore scroll after reload
-    window.addEventListener("load", () => {
-        const scrollPos = localStorage.getItem("scrollPos");
-        if (scrollPos) {
-            window.scrollTo(0, parseInt(scrollPos));
-            localStorage.removeItem("scrollPos");
-        }
-    });
-
-    const header = document.querySelector('.header');
+});
 </script>
+
 
 </html>

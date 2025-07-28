@@ -1,11 +1,13 @@
 <?php
 session_start();
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use MongoDB\BSON\ObjectId;
 
+header('Content-Type: application/json');
+
 if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+    echo json_encode(['success' => false, 'message' => 'Not logged in']);
     exit;
 }
 
@@ -21,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
         $stock = isset($item['stock']) ? (int)$item['stock'] : 0;
         $cartItemId = (string)$item['_id'];
 
-        // Count quantity in cart already
         $currentQtyInCart = 0;
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $ci) {
@@ -33,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
         }
 
         if ($currentQtyInCart < $stock) {
-            // Add or increment item in cart
             $found = false;
             foreach ($_SESSION['cart'] as &$ci) {
                 if ($ci['id'] === $cartItemId) {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
                     break;
                 }
             }
-            unset($ci); // Break reference
+            unset($ci);
 
             if (!$found) {
                 $_SESSION['cart'][] = [
@@ -53,11 +53,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
                     'image' => $item['image']
                 ];
             }
+
+            echo json_encode(['success' => true]);
+            exit;
         } else {
-            $_SESSION['error'] = "🚫 You cannot add more than available stock!";
+            echo json_encode(['success' => false, 'message' => 'Out of stock']);
+            exit;
         }
     }
 }
 
-header("Location: menu.php");
+echo json_encode(['success' => false, 'message' => 'Invalid request']);
 exit;

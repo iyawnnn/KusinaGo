@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $db = $client->food_ordering;
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Admin login (hardcoded)
         if ($password === '12345') {
             $_SESSION['admin'] = $username;
-            header("Location: dashboard.php");
+            header("Location: /FoodOrderingSystem/admin/dashboard.php");
             exit;
         } else {
             $error = 'Invalid admin credentials.';
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user'] = $username;
-            header("Location: index.php");
+            header("Location: /FoodOrderingSystem/index.php");
             exit;
         } else {
             $error = 'Invalid user credentials.';
@@ -43,8 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 
 <body class="login-body">
@@ -79,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
 
             <div class="login-footer">
-                <a href="index.php" class="login-back-link">← Back to Home</a>
+                <a href="../index.php" class="login-back-link">← Back to Home</a>
             </div>
         </div>
     </div>
