@@ -3,19 +3,19 @@
 
     <!-- Logo & Tagline -->
     <div class="footer-section">
-      <img src="uploads/KusinoGo Logo.svg" alt="KusinaGo Logo" class="footer-logo">
-      <p class="footer-tagline">Lutong Bahay, </p>
-      <p class="footer-tagline">Diretso Sa'yo </p>
+      <img src="<?= ICON_PATH ?>KusinaGo-Logo.svg" alt="KusinaGo Logo" class="footer-logo">
+      <p class="footer-tagline">Lutong Bahay,</p>
+      <p class="footer-tagline">Diretso Sa'yo</p>
     </div>
 
     <!-- Quick Links -->
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="menu.php">Menu</a></li>
-        <li><a href="cart.php">Cart</a></li>
-        <li><a href="user_orders.php">My Orders</a></li>
+        <li><a href="<?= BASE_URL ?>index.php">Home</a></li>
+        <li><a href="<?= BASE_URL ?>menu/menu.php">Menu</a></li>
+        <li><a href="<?= BASE_URL ?>cart/cart.php">Cart</a></li>
+        <li><a href="<?= BASE_URL ?>orders/user_orders.php">My Orders</a></li>
       </ul>
     </div>
 

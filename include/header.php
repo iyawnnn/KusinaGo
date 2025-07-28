@@ -3,6 +3,8 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
+require_once __DIR__ . '/../config.php';
+
 $loggedInUser = $_SESSION['user'] ?? null;
 $loggedInAdmin = $_SESSION['admin'] ?? null;
 
@@ -15,15 +17,14 @@ if (isset($_SESSION['cart'])) {
 
 $pendingCount = 0;
 if ($loggedInAdmin) {
-  $client = new MongoDB\Client("mongodb://localhost:27017");
-  $ordersCollection = $client->food_ordering->orders;
+  $ordersCollection = $db->orders;
   $pendingCount = $ordersCollection->countDocuments(['status' => 'Pending']);
 }
 ?>
 
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="<?= CSS_PATH ?>main.css">
+<link rel="stylesheet" href="<?= CSS_PATH ?>responsive.css">
 
 <header class="header">
   <div class="header-container">
@@ -31,12 +32,12 @@ if ($loggedInAdmin) {
     <!-- Left Navigation -->
     <div class="nav-left">
       <?php if ($loggedInUser): ?>
-        <a href="index.php">Home</a>
-        <a href="menu.php">Menu</a>
+        <a href="<?= BASE_URL ?>index.php">Home</a>
+        <a href="<?= BASE_URL ?>menu/menu.php">Menu</a>
       <?php elseif ($loggedInAdmin): ?>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="menu_list.php">Menu</a>
-        <a href="admin_orders.php" class="btn-badge">
+        <a href="<?= BASE_URL ?>admin/dashboard.php">Dashboard</a>
+        <a href="<?= BASE_URL ?>admin/menu_list.php">Menu</a>
+        <a href="<?= BASE_URL ?>admin/admin_orders.php" class="btn-badge">
           Orders
           <?php if ($pendingCount > 0): ?>
             <span class="badge"><?= $pendingCount ?></span>
@@ -47,37 +48,37 @@ if ($loggedInAdmin) {
 
     <!-- Center Logo -->
     <div class="nav-center">
-      <?php $logoLink = $loggedInAdmin ? 'dashboard.php' : 'index.php'; ?>
-      <a href="<?= $logoLink ?>">
-        <img src="uploads/KusinoGo Logo.svg" alt="KusinaGo Logo" class="logo">
+      <?php $logoLink = $loggedInAdmin ? 'admin/dashboard.php' : 'index.php'; ?>
+      <a href="<?= BASE_URL . $logoLink ?>">
+        <img src="<?= ICON_PATH ?>KusinaGo-Logo.svg" alt="KusinaGo Logo" class="logo">
       </a>
     </div>
 
     <!-- Right Navigation -->
     <div class="nav-right">
       <?php if ($loggedInUser): ?>
-        <a href="cart.php" class="btn-badge">
+        <a href="<?= BASE_URL ?>cart/cart.php" class="btn-badge">
           Cart
           <?php if ($cartCount > 0): ?>
             <span class="badge cart-badge"><?= $cartCount ?></span>
           <?php endif; ?>
         </a>
-        <a href="user_orders.php">My Orders</a>
+        <a href="<?= BASE_URL ?>orders/user_orders.php">My Orders</a>
       <?php elseif ($loggedInAdmin): ?>
-        <a href="admin_inventory.php">Inventory</a>
-        <a href="admin_report.php">Sales</a>
-        <a href="admin_users.php">User Stats</a>
+        <a href="<?= BASE_URL ?>admin/admin_inventory.php">Inventory</a>
+        <a href="<?= BASE_URL ?>admin/admin_report.php">Sales</a>
+        <a href="<?= BASE_URL ?>admin/admin_users.php">User Stats</a>
       <?php endif; ?>
     </div>
 
     <!-- Logout Icon -->
     <div class="nav-logout">
       <?php if ($loggedInUser || $loggedInAdmin): ?>
-        <a href="logout.php" class="logout-icon" title="Logout">
+        <a href="<?= BASE_URL ?>auth/logout.php" class="logout-icon" title="Logout">
           <iconify-icon icon="mdi:logout"></iconify-icon>
         </a>
       <?php else: ?>
-        <a href="login.php">Login</a>
+        <a href="<?= BASE_URL ?>login.php">Login</a>
       <?php endif; ?>
     </div>
 
