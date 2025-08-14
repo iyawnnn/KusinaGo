@@ -103,10 +103,10 @@ try {
       <div class="heritage-text">
         <h2>Where Home Meets Flavor</h2>
         <p>
-          From our humble beginnings, KusinaGo has been about more than just food — it’s about
+          From our humble beginnings, KusinaGo has been about more than just food — it's about
           keeping the warmth of the Filipino home alive. Every dish carries the taste of
           cherished family recipes, prepared with fresh ingredients and a heart for tradition.
-          Whether it’s a quick solo meal or a spread for loved ones, every bite is made to feel
+          Whether it's a quick solo meal or a spread for loved ones, every bite is made to feel
           like home.
         </p>
       </div>
@@ -115,25 +115,35 @@ try {
 
 
   <section class="featured-section">
-    <h2 class="section-heading"><span>Best Sellers</span></h2>
+    <h2 class="section-heading"><span>Where Every Bite Wins Hearts</span></h2>
     <div class="featured-container">
-      <?php foreach ($featuredItems as $item): ?>
+      <?php
+      $count = 0;
+      foreach ($featuredItems as $item):
+        if ($count >= 3) break;
+      ?>
         <div class="featured-item">
-          <img src="assets/item-pictures/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="featured-img">
+          <img src="assets/item-pictures/<?= htmlspecialchars($item['image']) ?>"
+            alt="<?= htmlspecialchars($item['name']) ?>"
+            class="featured-img">
           <div class="featured-info">
-            <span class="category"><?= htmlspecialchars($item['category'] ?? 'Uncategorized') ?></span>
             <h3><?= htmlspecialchars($item['name']) ?></h3>
-            <p>₱<?= htmlspecialchars($item['price']) ?></p>
+            <span class="category"><?= htmlspecialchars($item['category'] ?? 'Uncategorized') ?></span>
           </div>
         </div>
-      <?php endforeach; ?>
+      <?php
+        $count++;
+      endforeach;
+      ?>
+    </div>
+
+    <div class="menu-btn-container">
+      <a href="menu.php" class="menu-btn">SEE WHAT'S ON THE TABLE</a>
     </div>
   </section>
 
-
   <section class="how-it-works-section">
     <div class="how-it-works-container">
-      <h2 class="section-heading">How It Works</h2>
       <div class="steps">
 
         <div class="step">
