@@ -49,7 +49,18 @@ try {
 
   <section class="home-hero">
     <div class="hero-img-wrapper">
-      <img src="<?= UPLOADS_PATH ?>header.svg" alt="Luxury Filipino Dish">
+      <img src="<?= UPLOADS_PATH ?>hero-picture.svg" alt="Luxury Filipino Dish">
+
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Savor Luxury,<br>
+          Filipino Style
+        </h1>
+        <p class="hero-subtitle">
+          Where timeless Filipino flavors meet modern elegance — thoughtfully crafted from the finest ingredients and delivered to your table for an unforgettable dining experience.
+        </p>
+      </div>
+
 
       <a href="menu/menu.php" class="hero-image-btn">
         <span class="hero-image-btn__icon-wrapper">
