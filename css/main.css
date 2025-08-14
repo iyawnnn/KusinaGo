@@ -7,8 +7,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
-  --orange: #e66c32;
-  --dark-green: #0e3f18;
+  --orange: #d45f28;
+  --dark-green: #013927;
   --olive-green: #385a42;
   --cream: #efeee6;
 
@@ -122,6 +122,7 @@ button {
 .nav-links a {
   display: flex;
   align-items: center;
+  font-family: "Merriweather", serif;;
 }
 
 .header a {
@@ -422,8 +423,8 @@ button {
 }
 
 .hero-image-btn:hover .hero-image-btn__icon-wrapper {
-  background-color: #fff;              /* white circle */
-  color: var(--dark-green);            /* green arrow */
+  background-color: #fff;             
+  color: var(--dark-green);            
 }
 
 .hero-image-btn:hover .hero-image-btn__icon-svg:first-child {
@@ -438,7 +439,7 @@ button {
 
 .hero-text {
   position: absolute;
-  top: 27%; /* raised higher */
+  top: 27%;
   left: 14%;
   max-width: 520px;
   color: white;
@@ -475,7 +476,7 @@ button {
   height: 2px;
   background-color: #385a42;
   width: 60%;
-  margin: 45px auto;
+  margin: 30px auto;
   border-radius: 2px;
 }
 
@@ -2517,6 +2518,7 @@ button {
 /*                      Footer                        */
 /* -------------------------------------------------- */
 .footer {
+  position: relative;
   background-color: var(--dark-green);
   color: var(--cream);
   padding: 40px 20px 20px;
@@ -2524,45 +2526,41 @@ button {
   font-size: 0.95rem;
 }
 
-.footer-section {
-  width: 100%;
-}
 
 .footer-container {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 100px;
-  justify-content: center;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
 }
 
 .footer-section h4 {
-  margin-bottom: 15px;
-  color: var(--orange);
+  margin-bottom: 10px;
+  color: white;
+  font-size: 2rem;
+  font-family: 'Noto Serif Display', serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: -0.070em;
+}
+
+/* Body text & links inside footer */
+.footer-section p,
+.footer-section a {
+  font-family: 'Crimson Pro', serif;
+  font-weight: 400;
   font-size: 1.1rem;
 }
 
 .footer-logo {
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-.footer-tagline {
-  margin-top: 0;
-  font-style: italic;
-  line-height: 1.4;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-section ul li {
-  margin-bottom: 8px;
+  height: 100px;
 }
 
 .footer-section a {
@@ -2576,7 +2574,7 @@ button {
 }
 
 .social-icons a {
-  margin-right: 12px;
+  margin-right: 8px;
   color: var(--cream);
   display: inline-block;
   transition: color 0.3s ease;
@@ -2586,14 +2584,29 @@ button {
   color: var(--orange);
 }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 15px;
-  font-size: 0.9rem;
-  color: #ccc;
+.footer-contact {
+  margin-bottom: 20px; /* adds space below the "Stay With Us" section */
 }
+
+.footer-social {
+  margin-top: 20px; /* adds space above the "Get Social" section */
+  margin-bottom: 50px;
+}
+
+.footer-image {
+  position: absolute;
+  bottom: 100px;
+  right: 120px;
+}
+
+.footer-image img {
+  width: 100%; /* or something large */
+  max-width: none; /* remove the cap */
+  height: auto;
+}
+
+
+
 
 /* ---------------------------- */
 /*        Login Page Styles     */
