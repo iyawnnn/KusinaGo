@@ -92,6 +92,28 @@ try {
 
   <hr class="section-divider">
 
+  <section class="heritage-section">
+    <div class="heritage-container">
+      <!-- Left: Image -->
+      <div class="heritage-image">
+        <img src="assets/uploads/about-section.svg" alt="KusinaGo Kitchen">
+      </div>
+
+      <!-- Right: Text -->
+      <div class="heritage-text">
+        <h2>Where Home Meets Flavor</h2>
+        <p>
+          From our humble beginnings, KusinaGo has been about more than just food — it’s about
+          keeping the warmth of the Filipino home alive. Every dish carries the taste of
+          cherished family recipes, prepared with fresh ingredients and a heart for tradition.
+          Whether it’s a quick solo meal or a spread for loved ones, every bite is made to feel
+          like home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
   <section class="featured-section">
     <h2 class="section-heading"><span>Best Sellers</span></h2>
     <div class="featured-container">
@@ -108,26 +130,6 @@ try {
     </div>
   </section>
 
-  <section class="our-story-section">
-    <div class="our-story-container">
-      <div class="story-text">
-        <h2>Our Story</h2>
-        <p>
-          KusinaGo was born from the belief that Filipino cuisine can be both traditional and timelessly elegant.
-        </p>
-        <p>
-          Rooted in cherished family recipes and inspired by the art of fine dining, we bring each dish to life with a balance of warmth and sophistication.
-        </p>
-        <p>
-          From the careful selection of local ingredients to the graceful presentation on your plate, every experience is curated to reflect not just our food — but our heritage, our passion, and our pride as Filipinos.
-        </p>
-
-      </div>
-      <div class="story-image">
-        <img src="assets/uploads/Chef.jpg" alt="Elegant Filipino Dish">
-      </div>
-    </div>
-  </section>
 
   <section class="how-it-works-section">
     <div class="how-it-works-container">
