@@ -29,11 +29,24 @@ if ($loggedInAdmin) {
 <header class="header">
   <div class="header-container">
 
-    <!-- Left Navigation -->
-    <div class="nav-left">
+    <!-- Left: Logo -->
+    <div class="nav-logo">
+      <?php $logoLink = $loggedInAdmin ? 'admin/dashboard.php' : 'index.php'; ?>
+      <a href="<?= BASE_URL . $logoLink ?>">
+        <img src="<?= ICON_PATH ?>KusinaGo-Logo.svg" alt="KusinaGo Logo" class="logo">
+      </a>
+    </div>
+
+    <!-- Center: Links -->
+    <div class="nav-links">
       <?php if ($loggedInUser): ?>
         <a href="<?= BASE_URL ?>index.php">Home</a>
         <a href="<?= BASE_URL ?>menu/menu.php">Menu</a>
+        <a href="<?= BASE_URL ?>cart/cart.php" class="btn-badge">
+          Cart
+          <span class="badge cart-badge" id="cart-count"><?= $cartCount ?></span>
+        </a>
+        <a href="<?= BASE_URL ?>orders/user_orders.php">My Orders</a>
       <?php elseif ($loggedInAdmin): ?>
         <a href="<?= BASE_URL ?>admin/dashboard.php">Dashboard</a>
         <a href="<?= BASE_URL ?>menu/menu_list.php">Menu</a>
@@ -43,33 +56,13 @@ if ($loggedInAdmin) {
             <span class="badge"><?= $pendingCount ?></span>
           <?php endif; ?>
         </a>
-      <?php endif; ?>
-    </div>
-
-    <!-- Center Logo -->
-    <div class="nav-center">
-      <?php $logoLink = $loggedInAdmin ? 'admin/dashboard.php' : 'index.php'; ?>
-      <a href="<?= BASE_URL . $logoLink ?>">
-        <img src="<?= ICON_PATH ?>KusinaGo-Logo.svg" alt="KusinaGo Logo" class="logo">
-      </a>
-    </div>
-
-    <!-- Right Navigation -->
-    <div class="nav-right">
-      <?php if ($loggedInUser): ?>
-        <a href="<?= BASE_URL ?>cart/cart.php" class="btn-badge">
-          Cart
-          <span class="badge cart-badge" id="cart-count"><?= $cartCount ?></span>
-        </a>
-        <a href="<?= BASE_URL ?>orders/user_orders.php">My Orders</a>
-      <?php elseif ($loggedInAdmin): ?>
         <a href="<?= BASE_URL ?>admin/admin_inventory.php">Inventory</a>
         <a href="<?= BASE_URL ?>admin/admin_report.php">Sales</a>
         <a href="<?= BASE_URL ?>admin/admin_users.php">User Stats</a>
       <?php endif; ?>
     </div>
 
-    <!-- Logout Icon -->
+    <!-- Right: Logout -->
     <div class="nav-logout">
       <?php if ($loggedInUser || $loggedInAdmin): ?>
         <a href="<?= BASE_URL ?>auth/logout.php" class="logout-icon" title="Logout">
