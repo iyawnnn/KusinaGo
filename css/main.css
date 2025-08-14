@@ -127,6 +127,7 @@ button {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
+  margin-left: 85px;
 }
 
 .logo {
@@ -2460,12 +2461,18 @@ button {
   font-size: 0.95rem;
 }
 
+.footer-section {
+  width: 100%;
+}
+
 .footer-container {
-  max-width: 1200px;
-  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, auto); 
+  gap: 100px; 
+  justify-content: center; 
+  max-width: 100%; 
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .footer-section h4 {
