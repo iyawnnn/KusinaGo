@@ -142,39 +142,67 @@ try {
     </div>
   </section>
 
-<section class="testimonials-section">
-  <div class="testimonials-container">
-    <h2 class="testimonial-heading">What our customers say</h2>
-    <div class="testimonial-cards">
+  <section class="testimonials-section">
+    <div class="testimonials-container">
+      <h2 class="testimonial-heading">What our customers say</h2>
+      <div class="testimonial-cards">
 
-      <div class="testimonial">
-        <img src="assets/uploads/customer1.svg" alt="Customer 1" class="profile-pic-illustration">
-        <p class="testimonial-text">
-          "It turned an ordinary dinner into something special. Every dish had rich flavors, refined details, and flawless presentation."
-        </p>
-        <p class="customer-name">- Adrian Velasco</p>
+        <div class="testimonial">
+          <img src="assets/uploads/customer1.svg" alt="Customer 1" class="profile-pic-illustration">
+          <p class="testimonial-text">
+            "It turned an ordinary dinner into something special. Every dish had rich flavors, refined details, and flawless presentation."
+          </p>
+          <p class="customer-name">- Adrian Velasco</p>
+        </div>
+
+        <div class="testimonial">
+          <img src="assets/uploads/customer2.svg" alt="Customer 2" class="profile-pic-illustration">
+          <p class="testimonial-text">
+            "Each order feels like it's been crafted just for me. The flavors are authentic yet refined, and the presentation always exceeds expectations."
+          </p>
+          <p class="customer-name">- Clarisse Tan</p>
+        </div>
+
+        <div class="testimonial">
+          <img src="assets/uploads/customer3.svg" alt="Customer 3" class="profile-pic-illustration">
+          <p class="testimonial-text">
+            "From the first bite to the last, every dish was a delight. KusinaGo blends tradition and elegance in a way that makes dining at home feel indulgent."
+          </p>
+          <p class="customer-name">- Lorenzo Villanueva</p>
+        </div>
+
       </div>
-
-      <div class="testimonial">
-        <img src="assets/uploads/customer2.svg" alt="Customer 2" class="profile-pic-illustration">
-        <p class="testimonial-text">
-          "Each order feels like it's been crafted just for me. The flavors are authentic yet refined, and the presentation always exceeds expectations."
-        </p>
-        <p class="customer-name">- Clarisse Tan</p>
-      </div>
-
-      <div class="testimonial">
-        <img src="assets/uploads/customer3.svg" alt="Customer 3" class="profile-pic-illustration">
-        <p class="testimonial-text">
-          "From the first bite to the last, every dish was a delight. KusinaGo blends tradition and elegance in a way that makes dining at home feel indulgent."
-        </p>
-        <p class="customer-name">- Lorenzo Villanueva</p>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="faqs-section">
+    <div class="faq-illustration">
+      <h2 class="faq-heading">FAQs</h2>
+    </div>
+
+    <div class="faq-items">
+      <div class="faq-item">
+        <h3 class="faq-question">Do you have alternatives for people with dietary restrictions?</h3>
+        <p class="faq-answer">Yes. Kindly inform us of any dining requests if you have food allergies or special dietary requirements. We offer vegetarian, vegan, gluten-free, and low-sodium options to ensure everyone enjoys their meal.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How far in advance should I place my order?</h3>
+        <p class="faq-answer">We recommend placing your order at least 24 hours in advance for regular items. For large gatherings or special menus, 48–72 hours notice is ideal to ensure freshness and availability.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Do you offer delivery outside the city?</h3>
+        <p class="faq-answer">Yes. We can arrange deliveries outside the city for an additional fee. Availability may vary depending on the distance, so please contact us directly for location-specific arrangements.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Can I customize the dishes in my order?</h3>
+        <p class="faq-answer">Absolutely! We’re happy to adjust ingredients, portion sizes, and flavors to suit your taste, event theme, or dietary needs. Just let us know when placing your order.</p>
+      </div>
+    </div>
+
+  </section>
 
 </body>
 

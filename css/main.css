@@ -684,7 +684,60 @@ button {
   color: #555;
 }
 
+/* ----------------------------------------- */
+/*               FAQ's Section               */
+/* ----------------------------------------- */
+.faqs-section {
+  background-color: var(--bg-color);
+  max-width: 1200px; 
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px; 
+  padding: 60px 20px;
+  align-items: flex-start;
+}
 
+.faq-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 100px;
+}
+
+.faq-illustration img {
+  width: 300px; 
+  height: auto;
+}
+
+.faq-heading {
+  font-family: "Noto Serif Displa", serif;
+  font-size: 5rem; 
+  font-weight: 500;
+}
+
+.faq-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px; 
+}
+
+.faq-item {
+  max-width: 320px; 
+}
+
+.faq-question {
+  font-family: "Crimson Pro", serif; 
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.25rem; 
+}
+
+.faq-answer {
+  font-family: "Crimson Pro", serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
 
 /* ----------------------------- */
 /*           Cart Page           */
