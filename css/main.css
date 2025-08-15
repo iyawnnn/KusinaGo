@@ -380,13 +380,14 @@ button {
   border-radius: 50px;
   font-weight: 600;
   padding: 18px 34px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   text-decoration: none;
   white-space: nowrap;
   z-index: 2;
   transition: background-color 0.3s ease, color 0.3s ease;
   transform: translate(0, 0);
   width: auto;
+  font-family: "Crimson Pro", serif;
 }
 
 .hero-image-btn__icon-wrapper {
@@ -556,16 +557,13 @@ button {
   align-items: flex-start;
 }
 
-.featured-item:hover {
-  box-shadow: 0 12px 25px rgba(14, 63, 24, 0.2);
-}
-
 .featured-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 12px 12px;
+  border-radius: 5px 5px;
   margin-bottom: 15px;
+  box-shadow: 0 12px 25px rgba(14, 63, 24, 0.2);
 }
 
 .featured-info {
@@ -622,125 +620,71 @@ button {
   border-color: #bc9c22;
 }
 
-/* -------------------------------------------------- */
-/*               How It Works Section                 */
-/* -------------------------------------------------- */
-
-.how-it-works-section {
-  background-color: #efeee6;
-}
-
-.how-it-works-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.how-it-works-container {
-  font-size: 2.4rem;
-  font-family: "Merriweather", serif;
-  color: #121212;
-  font-weight: 700;
-}
-
-.steps {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px;
-}
-
-.step {
-  max-width: 300px;
-  text-align: center;
-}
-
-.step-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  color: #e66c32;
-}
-
-.step h3 {
-  font-size: 1.5rem;
-  color: #121212;
-  margin-bottom: 10px;
-  font-weight: 600;
-  font-family: "Merriweather", serif;
-}
-
-.step p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #2d2d2d;
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-}
-
-.step-icon iconify-icon {
-  width: 64px;
-  height: 64px;
-  color: #e66c32;
-}
 
 /* -------------------------------------------------- */
 /*               Customer Testimonials                */
 /* -------------------------------------------------- */
 
 .testimonials-section {
-  background-color: var(--cream);
+  background-color: var(--bg-color);
   padding: 60px 20px;
 }
 
+
+.testimonials-container {
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+.testimonial-heading {
+  font-family: "Crimson Pro", serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 70px;
+  text-align: left;
+}
+
 .testimonial-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 120px;
 }
 
 .testimonial {
-  padding: 30px 24px;
-  border-radius: 3px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
-  max-width: 320px;
-  text-align: center;
-  position: relative;
-  transition: transform 0.3s ease;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-.testimonial .profile-pic {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.profile-pic-illustration {
+  align-self: center;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 40px;
 }
 
-.testimonial .customer-name {
+.testimonial-text {
+  font-family: "Crimson Pro", serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.customer-name {
+  font-family: "Crimson Pro", serif;
+  font-style: italic;
   font-size: 1.1rem;
-  font-weight: 600;
-  color: #0e3f18;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 4px;
+  color: #555;
 }
 
-.testimonial .customer-role {
-  font-size: 1rem;
-  color: #666;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 16px;
-}
 
-.testimonial p {
-  font-size: 1.05rem;
-  font-family: "Poppins", sans-serif;
-  color: #000;
-  line-height: 1.6;
-}
 
 /* ----------------------------- */
 /*           Cart Page           */
@@ -762,7 +706,7 @@ button {
   padding: 50px 20px;
   font-size: 1.2rem;
   color: #2d2d2d;
-}
+} 
 
 .empty-cart-icon {
   color: #e66c32;

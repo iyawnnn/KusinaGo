@@ -138,69 +138,43 @@ try {
     </div>
 
     <div class="menu-btn-container">
-      <a href="menu.php" class="menu-btn">SEE WHAT'S ON THE TABLE</a>
+      <a href="menu/menu.php" class="menu-btn">SEE WHAT'S ON THE TABLE</a>
     </div>
   </section>
 
-  <section class="how-it-works-section">
-    <div class="how-it-works-container">
-      <div class="steps">
-
-        <div class="step">
-          <span class="step-icon">
-            <iconify-icon icon="mdi:food-outline" width="48" height="48"></iconify-icon>
-          </span>
-          <h3>Curate Your Cravings</h3>
-          <p>Discover a refined selection of Filipino cuisine — each dish a blend of tradition and culinary elegance.</p>
-        </div>
-
-        <div class="step">
-          <span class="step-icon">
-            <iconify-icon icon="mdi:clipboard-text-outline" width="48" height="48"></iconify-icon>
-          </span>
-          <h3>Effortless Ordering</h3>
-          <p>With a few simple clicks, reserve your favorites. Our seamless process puts comfort and convenience first.</p>
-        </div>
-
-        <div class="step">
-          <span class="step-icon">
-            <iconify-icon icon="mdi:truck-delivery-outline" width="48" height="48"></iconify-icon>
-          </span>
-          <h3>Dine in Elegance</h3>
-          <p>Your selections arrive carefully prepared and beautifully packed — ready to serve, savor, and celebrate.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials-section">
-    <h2 class="section-heading">What Our Customers Say</h2>
+<section class="testimonials-section">
+  <div class="testimonials-container">
+    <h2 class="testimonial-heading">What our customers say</h2>
     <div class="testimonial-cards">
 
       <div class="testimonial">
-        <img src="assets/uploads/customer1.jpg" alt="Customer 1" class="profile-pic">
-        <div class="customer-name">Isabella Cruz</div>
-        <div class="customer-role">Food Blogger</div>
-        <p>“From packaging to taste — KusinaGo delivered a fine dining experience right to our doorstep.”</p>
+        <img src="assets/uploads/customer1.svg" alt="Customer 1" class="profile-pic-illustration">
+        <p class="testimonial-text">
+          "It turned an ordinary dinner into something special. Every dish had rich flavors, refined details, and flawless presentation."
+        </p>
+        <p class="customer-name">- Adrian Velasco</p>
       </div>
 
       <div class="testimonial">
-        <img src="assets/uploads/customer2.webp" alt="Customer 2" class="profile-pic">
-        <div class="customer-name">Trisha Dela Rosa</div>
-        <div class="customer-role">Corporate Chef</div>
-        <p>“Truly elegant. The balance of flavor and presentation is unmatched.”</p>
+        <img src="assets/uploads/customer2.svg" alt="Customer 2" class="profile-pic-illustration">
+        <p class="testimonial-text">
+          "Each order feels like it's been crafted just for me. The flavors are authentic yet refined, and the presentation always exceeds expectations."
+        </p>
+        <p class="customer-name">- Clarisse Tan</p>
       </div>
 
       <div class="testimonial">
-        <img src="assets/uploads/customer3.jpg" alt="Customer 3" class="profile-pic">
-        <div class="customer-name">Clarisse Tan</div>
-        <div class="customer-role">Interior Designer</div>
-        <p>“It's not just food — it's a full luxurious experience. Everything feels premium.”</p>
+        <img src="assets/uploads/customer3.svg" alt="Customer 3" class="profile-pic-illustration">
+        <p class="testimonial-text">
+          "From the first bite to the last, every dish was a delight. KusinaGo blends tradition and elegance in a way that makes dining at home feel indulgent."
+        </p>
+        <p class="customer-name">- Lorenzo Villanueva</p>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
+
 
 </body>
 
