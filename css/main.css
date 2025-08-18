@@ -473,7 +473,7 @@ button {
 /* -------------------------------------------------- */
 
 .heritage-section {
-  background-color: #cae6d5; /* Warm neutral */
+  background-color: #cae6d5;
   padding: 30px 5px;
 }
 
@@ -489,8 +489,8 @@ button {
 .heritage-image {
   flex: 0.8;
   min-width: 280px;
-  margin-left: 80px; /* move right */
-  margin-top: 50px; /* move down */
+  margin-left: 80px;
+  margin-top: 50px; 
 }
 
 .heritage-image img {

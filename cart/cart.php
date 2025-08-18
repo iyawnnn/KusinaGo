@@ -34,7 +34,6 @@ $menuCollection = $db->menu;
     <main>
         <section class="cart-section">
             <div class="cart-container">
-                <h2 class="section-heading">Your Cart</h2>
 
                 <?php if (empty($cart)): ?>
                     <div class="empty-cart">
