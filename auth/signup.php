@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $db = $client->food_ordering;
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Sign Up | KusinaGo</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="icon" href="uploads/favicon.svg">
 </head>
 
