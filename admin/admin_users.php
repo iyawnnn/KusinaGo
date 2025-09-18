@@ -10,7 +10,8 @@ if (!isset($_SESSION['admin'])) {
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $db = $client->food_ordering;
 
-$users = $db->users->find();
+$usersCursor = $db->users->find();
+$users = iterator_to_array($usersCursor); // now $users is a reusable array
 $orders = $db->orders;
 ?>
 
@@ -23,6 +24,7 @@ $orders = $db->orders;
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="icon" href="../assets/icons/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -73,6 +75,32 @@ $orders = $db->orders;
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Mobile Card View -->
+                <div class="customer-card-container">
+                    <?php foreach ($users as $user):
+                        $username = $user['username'];
+                        $userOrders = $orders->find(['username' => $username]);
+
+                        $orderCount = 0;
+                        $totalSpent = 0;
+
+                        foreach ($userOrders as $order) {
+                            $orderCount++;
+                            $totalSpent += $order['total'];
+                        }
+                    ?>
+                        <div class="customer-card">
+                            <p><strong>Username:</strong> <?= htmlspecialchars($username) ?></p>
+                            <p><strong>Total Orders:</strong> <?= $orderCount ?></p>
+                            <p><strong>Total Spent:</strong> ₱<?= number_format($totalSpent, 2) ?></p>
+                            <p>
+                                <a href="admin_user_orders.php?username=<?= urlencode($username) ?>" class="menu-action view">View Orders</a>
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
             </div>
         </section>
 

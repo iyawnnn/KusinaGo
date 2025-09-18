@@ -24,6 +24,7 @@ $menuCollection = $db->menu;
     <title>Your Cart | KusinaGo</title>
     <link rel="stylesheet" href="<?= CSS_PATH ?>main.css">
     <link rel="icon" href="<?= ICON_PATH ?>favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 
@@ -86,12 +87,6 @@ $menuCollection = $db->menu;
                                         </td>
 
                                         <td class="item-total">₱<?= number_format($subtotal, 2) ?></td>
-                                        <td>
-                                            <form method="post" action="remove_from_cart.php">
-                                                <input type="hidden" name="item_index" value="<?= $index ?>">
-                                                <button type="submit" class="remove-btn">×</button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -131,12 +126,36 @@ $menuCollection = $db->menu;
 
                 if (this.classList.contains('plus') && quantity < max) {
                     quantity++;
-                } else if (this.classList.contains('minus') && quantity > 1) {
+                } else if (this.classList.contains('minus')) {
                     quantity--;
                 }
 
+                // Update input
                 input.value = quantity;
 
+                // Remove item if quantity is 0
+                if (quantity <= 0) {
+                    fetch('remove_from_cart.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: `item_index=${index}`
+                    }).then(() => {
+                        // Remove row from DOM
+                        input.closest('tr').remove();
+
+                        // Update cart total
+                        fetch('get_cart_total.php') // optional: create this to get updated total
+                            .then(res => res.json())
+                            .then(data => {
+                                document.getElementById('cart-total').textContent = data.cart_total.toFixed(2);
+                            });
+                    });
+                    return;
+                }
+
+                // Update cart quantities normally
                 fetch('update_cart.php', {
                         method: 'POST',
                         headers: {

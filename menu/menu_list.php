@@ -6,6 +6,8 @@ $client = new MongoDB\Client("mongodb://localhost:27017");
 $collection = $client->food_ordering->menu;
 
 $items = $collection->find();
+// Fetch all items as an array so we can loop multiple times
+$items = iterator_to_array($collection->find());
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +19,7 @@ $items = $collection->find();
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="icon" href="../assets/icons/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -33,6 +36,8 @@ $items = $collection->find();
                         <a href="add_item.php" class="menu-btn add">Add New Item</a>
                     </div>
                 </div>
+
+
 
                 <div class="menu-table-container">
                     <table class="menu-table">
@@ -70,6 +75,27 @@ $items = $collection->find();
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+                </div>
+
+                <!-- Mobile Card View -->
+                <div class="menu-card-container">
+                    <?php foreach ($items as $item): ?>
+                        <div class="menu-card">
+                            <div class="menu-info">
+                                <p><strong>Item:</strong> <?= htmlspecialchars($item['name']) ?></p>
+                                <p><strong>Price:</strong> ₱<?= number_format($item['price'], 2) ?></p>
+                                <p><strong>Category:</strong> <?= htmlspecialchars($item['category']) ?></p>
+                                <div class="menu-actions">
+                                    <a href="edit_item.php?id=<?= $item['_id'] ?>" class="menu-action edit">Edit</a>
+                                    <button class="menu-action delete" onclick="openDeleteModal('<?= $item['_id'] ?>')">Delete</button>
+                                </div>
+                            </div>
+                            <?php if (!empty($item['image'])): ?>
+                                <img src="../assets/item-pictures/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="menu-thumbnail">
+                            <?php endif; ?>
+                        </div>
+
+                    <?php endforeach; ?>
                 </div>
 
             </div>

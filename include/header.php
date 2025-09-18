@@ -37,7 +37,13 @@ if ($loggedInAdmin) {
       </a>
     </div>
 
-    <!-- Center: Links -->
+    <!-- Hamburger Button (mobile only) -->
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <div class="nav-links">
       <?php if ($loggedInUser): ?>
         <a href="<?= BASE_URL ?>index.php">Home</a>
@@ -47,6 +53,10 @@ if ($loggedInAdmin) {
           <span class="badge cart-badge" id="cart-count"><?= $cartCount ?></span>
         </a>
         <a href="<?= BASE_URL ?>orders/user_orders.php">My Orders</a>
+
+        <!-- Mobile-only logout -->
+        <a href="<?= BASE_URL ?>auth/logout.php" class="mobile-logout">Logout</a>
+
       <?php elseif ($loggedInAdmin): ?>
         <a href="<?= BASE_URL ?>admin/dashboard.php">Dashboard</a>
         <a href="<?= BASE_URL ?>menu/menu_list.php">Menu</a>
@@ -59,19 +69,34 @@ if ($loggedInAdmin) {
         <a href="<?= BASE_URL ?>admin/admin_inventory.php">Inventory</a>
         <a href="<?= BASE_URL ?>admin/admin_report.php">Sales</a>
         <a href="<?= BASE_URL ?>admin/admin_users.php">User Stats</a>
-      <?php endif; ?>
-    </div>
 
-    <!-- Right: Logout -->
-    <div class="nav-logout">
-      <?php if ($loggedInUser || $loggedInAdmin): ?>
-        <a href="<?= BASE_URL ?>auth/logout.php" class="logout-icon" title="Logout">
-          <iconify-icon icon="mdi:logout"></iconify-icon>
-        </a>
+        <!-- Mobile-only logout -->
+        <a href="<?= BASE_URL ?>auth/logout.php" class="mobile-logout">Logout</a>
+
       <?php else: ?>
         <a href="<?= BASE_URL ?>auth/login.php">Login</a>
       <?php endif; ?>
     </div>
 
+    <!-- Right: Logout (desktop only) -->
+    <div class="nav-logout">
+      <?php if ($loggedInUser || $loggedInAdmin): ?>
+        <a href="<?= BASE_URL ?>auth/logout.php" class="logout-icon" title="Logout">
+          <iconify-icon icon="mdi:logout"></iconify-icon>
+        </a>
+      <?php endif; ?>
+    </div>
+
   </div>
 </header>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+  });
+</script>

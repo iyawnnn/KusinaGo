@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="icon" href="../assets/icons/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
