@@ -7,7 +7,11 @@ use MongoDB\BSON\ObjectId;
 header('Content-Type: application/json');
 
 if (!isset($_SESSION['user'])) {
-    echo json_encode(['success' => false, 'message' => 'Not logged in']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Not logged in',
+        'redirect' => '/FoodOrderingSystem/auth/login.php'
+    ]);
     exit;
 }
 
@@ -54,7 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item_id'])) {
                 ];
             }
 
-            echo json_encode(['success' => true]);
+            $newQuantity = $currentQtyInCart + 1;
+            echo json_encode(['success' => true, 'newQuantity' => $newQuantity]);
             exit;
         } else {
             echo json_encode(['success' => false, 'message' => 'Out of stock']);

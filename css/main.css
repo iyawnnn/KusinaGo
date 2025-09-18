@@ -225,7 +225,7 @@ button {
   overflow: hidden;
   box-shadow: none;
   padding-left: var(--space-lg);
-  height: 200px;
+  height: 225px;
 }
 
 .item-info {
@@ -233,8 +233,9 @@ button {
   padding-right: var(--space-md);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
+
 
 .item-info h3 {
   font-size: 1.2rem;
@@ -269,6 +270,15 @@ button {
   display: block;
 }
 
+.item-text {
+  flex: 1;
+}
+
+.item-action {
+  margin-top: auto; /* pushes it to the bottom */
+}
+
+
 /* -------------------------------------------------- */
 /*                 Cart Button                        */
 /* -------------------------------------------------- */
@@ -294,8 +304,8 @@ button {
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  margin-top: 10px;
   margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .cart-btn:hover {
@@ -365,6 +375,7 @@ button {
   width: 100%;
   height: auto;
   object-fit: cover;
+  height: 95vh;
 }
 
 .hero-image-btn {
@@ -747,6 +758,7 @@ button {
   background-color: #efeee6;
   padding: 60px 20px;
   font-family: "Poppins", sans-serif;
+  min-height: 80vh;
 }
 
 .cart-container {
@@ -755,11 +767,16 @@ button {
 }
 
 .empty-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* centers it vertically */
   text-align: center;
-  padding: 50px 20px;
   font-size: 1.2rem;
   color: #2d2d2d;
-} 
+}
+
 
 .empty-cart-icon {
   color: #e66c32;
@@ -1081,6 +1098,7 @@ button {
 .checkout-form-wrapper {
   max-width: 700px;
   margin: 30px auto;
+  margin-top: 50px;
   background-color: #efeee6;
   padding: 30px;
   border-radius: 12px;
@@ -1435,7 +1453,10 @@ button {
   max-width: 850px;
   margin: 60px auto;
   padding: 0 20px;
+  min-height: 50vh;
+  position: relative; 
 }
+
 
 .order-history-title {
   text-align: center;
@@ -1516,11 +1537,16 @@ button {
   color: #0e3f18;
 }
 
+/* Center the no orders message only */
 .no-orders-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   font-size: 16px;
   color: #888;
-  padding: 20px 0;
+  width: 100%;
 }
 
 .modal-overlay {
@@ -1949,11 +1975,18 @@ button {
 /* ------------------------------------- */
 /*             Menu Management           */
 /* ------------------------------------- */
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+/* Main content grows */
 .menu-list-section {
+  flex: 1;            
   padding: 40px 30px;
   background-color: #efeee6;
-  min-height: 100vh;
-  margin-top: 50px;
 }
 
 .menu-list-header {
@@ -2084,6 +2117,20 @@ button {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.current-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.current-image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
 
 /* ------------------------------------- */
 /*         Add Item Page Styling         */
@@ -2438,7 +2485,7 @@ button {
 
 .admin-section {
   padding: 40px 30px;
-  background-color: #efeee6; /* KusinaGo Cream */
+  background-color: #efeee6; 
 }
 
 .admin-section-title {
@@ -2482,7 +2529,6 @@ button {
   background-color: #e9e6dc;
 }
 
-/* Stock form styling improvements */
 .stock-form {
   display: flex;
   justify-content: center;
@@ -2566,7 +2612,6 @@ button {
   letter-spacing: -0.07em;
 }
 
-/* Body text & links inside footer */
 .footer-section p,
 .footer-section a {
   font-family: "Crimson Pro", serif;
@@ -2600,11 +2645,11 @@ button {
 }
 
 .footer-contact {
-  margin-bottom: 20px; /* adds space below the "Stay With Us" section */
+  margin-bottom: 20px;
 }
 
 .footer-social {
-  margin-top: 20px; /* adds space above the "Get Social" section */
+  margin-top: 20px; 
   margin-bottom: 50px;
 }
 
@@ -2615,8 +2660,8 @@ button {
 }
 
 .footer-image img {
-  width: 100%; /* or something large */
-  max-width: none; /* remove the cap */
+  width: 100%; 
+  max-width: none; 
   height: auto;
 }
 
@@ -2758,9 +2803,12 @@ button {
   font-size: 14px;
 }
 
+.admin-main {
+  flex: 1;
+}
+
 .admin-footer {
   background-color: var(--dark-green);
-  margin-top: 60px;
   color: #efeee6;
   font-size: 0.875rem;
   padding: 15px 20px;

@@ -10,6 +10,7 @@ $items = $collection->find();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Menu Management | KusinaGo</title>
@@ -17,86 +18,97 @@ $items = $collection->find();
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
+
 <body>
 
-<?php include '../include/header.php'; ?>
+    <div class="page-wrapper">
+        <?php include '../include/header.php'; ?>
 
-<section class="menu-list-section">
-    <div class="menu-list-inner">
+        <section class="menu-list-section">
+            <div class="menu-list-inner">
 
-        <div class="menu-list-header">
-            <h2 class="menu-list-title">Manage Menu Items</h2>
-            <div class="menu-list-actions">
-                <a href="add_item.php" class="menu-btn add">Add New Item</a>
+                <div class="menu-list-header">
+                    <h2 class="menu-list-title">Manage Menu Items</h2>
+                    <div class="menu-list-actions">
+                        <a href="add_item.php" class="menu-btn add">Add New Item</a>
+                    </div>
+                </div>
+
+                <div class="menu-table-container">
+                    <table class="menu-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($items as $item): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($item['name']) ?></td>
+                                    <td>₱<?= number_format($item['price'], 2) ?></td>
+                                    <td><?= htmlspecialchars($item['category']) ?></td>
+                                    <td>
+                                        <?php if (!empty($item['image'])): ?>
+                                            <img src="../assets/item-pictures/<?= htmlspecialchars($item['image']) ?>"
+                                                alt="<?= htmlspecialchars($item['name']) ?>"
+                                                class="menu-thumbnail">
+                                        <?php else: ?>
+                                            <span class="no-image">No image</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <a href="edit_item.php?id=<?= $item['_id'] ?>" class="menu-action edit">Edit</a>
+                                        <button
+                                            class="menu-action delete"
+                                            onclick="openDeleteModal('<?= $item['_id'] ?>')">Delete</button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+        <?php include '../include/footer_admin.php'; ?>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay hidden" id="deleteModal">
+        <div class="modal">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete this menu item? This action cannot be undone.</p>
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+                <a href="#" id="confirmDeleteBtn" class="confirm-btn">Delete</a>
             </div>
         </div>
-
-        <div class="menu-table-container">
-            <table class="menu-table">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Image</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($items as $item): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($item['name']) ?></td>
-                            <td>₱<?= number_format($item['price'], 2) ?></td>
-                            <td><?= htmlspecialchars($item['category']) ?></td>
-                            <td><img src="../assets/item-pictures/<?= htmlspecialchars($item['image']) ?>" class="menu-thumbnail"></td>
-                            <td>
-                                <a href="edit_item.php?id=<?= $item['_id'] ?>" class="menu-action edit">Edit</a>
-                                <button 
-                                    class="menu-action delete" 
-                                    onclick="openDeleteModal('<?= $item['_id'] ?>')"
-                                >Delete</button>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-
     </div>
-</section>
 
-<!-- Delete Confirmation Modal -->
-<div class="modal-overlay hidden" id="deleteModal">
-    <div class="modal">
-        <h3>Confirm Deletion</h3>
-        <p>Are you sure you want to delete this menu item? This action cannot be undone.</p>
-        <div class="modal-buttons">
-            <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
-            <a href="#" id="confirmDeleteBtn" class="confirm-btn">Delete</a>
-        </div>
-    </div>
-</div>
+    <script>
+        function openDeleteModal(id) {
+            const modal = document.getElementById('deleteModal');
+            const confirmBtn = document.getElementById('confirmDeleteBtn');
+            confirmBtn.href = 'delete_item.php?id=' + id;
+            modal.classList.remove('hidden');
+        }
 
-<script>
-    function openDeleteModal(id) {
-        const modal = document.getElementById('deleteModal');
-        const confirmBtn = document.getElementById('confirmDeleteBtn');
-        confirmBtn.href = 'delete_item.php?id=' + id;
-        modal.classList.remove('hidden');
-    }
+        function closeDeleteModal() {
+            const modal = document.getElementById('deleteModal');
+            modal.classList.add('hidden');
+        }
 
-    function closeDeleteModal() {
-        const modal = document.getElementById('deleteModal');
-        modal.classList.add('hidden');
-    }
-
-    // Close on ESC
-    window.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeDeleteModal();
-    });
-</script>
-
-<?php include '../include/footer_admin.php'; ?>
+        // Close on ESC
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeDeleteModal();
+        });
+    </script>
 
 </body>
+
 </html>

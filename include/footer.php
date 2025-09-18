@@ -19,9 +19,9 @@
       <div class="footer-section footer-social">
         <h4>Get Social</h4>
         <div class="social-icons">
-          <a href="#"><iconify-icon icon="mdi:facebook" width="24"></iconify-icon></a>
-          <a href="#"><iconify-icon icon="mdi:instagram" width="24"></iconify-icon></a>
-          <a href="#"><iconify-icon icon="mdi:twitter" width="24"></iconify-icon></a>
+          <a href="https://www.facebook.com/"><iconify-icon icon="mdi:facebook" width="24"></iconify-icon></a>
+          <a href="https://www.instagram.com/"><iconify-icon icon="mdi:instagram" width="24"></iconify-icon></a>
+          <a href="https://x.com/"><iconify-icon icon="mdi:twitter" width="24"></iconify-icon></a>
         </div>
       </div>
     </div>

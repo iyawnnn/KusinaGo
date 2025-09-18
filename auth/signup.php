@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Sign Up | KusinaGo</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="icon" href="uploads/favicon.svg">
+    <link rel="icon" href="../assets/icons/favicon.svg">
 </head>
 
 <body class="login-body">
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
 
             <div class="login-footer">
-                <a href="index.php" class="login-back-link">← Back to Home</a>
+                <a href="../index.php" class="login-back-link">← Back to Home</a>
             </div>
         </div>
     </div>

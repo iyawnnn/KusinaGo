@@ -3,5 +3,7 @@
 /.idea/
 /.vscode/
 *.log
+composer.json
 composer.lock
+composer.phar
 .env
